@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "soul_ice",
+  "version": "${version}",
+  "name": "Soul Ice",
+  "description": "Soul Ice mod (Flushed Emoji)",
+  "authors": [
+    "Siuolplex"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/soulice/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.siuolplex.soul_ice.SoulIce"
+    ]
+  },
+  "mixins": [
+    "soul_ice.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "fabric": "*",
+    "minecraft": "1.18.1"
+  }
+}
