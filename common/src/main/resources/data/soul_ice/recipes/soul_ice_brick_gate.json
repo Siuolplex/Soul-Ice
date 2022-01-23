@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XYX",
+    "XYX"
+  ],
+  "key": {
+    "X": {
+      "item": "soul_ice:soul_ice_brick_wall"
+    },
+    "Y": {
+      "item": "soul_ice:soul_ice_bricks"
+    }
+  },
+  "result": {
+    "item": "soul_ice:soul_ice_brick_gate",
+    "count": 4
+  }
+}

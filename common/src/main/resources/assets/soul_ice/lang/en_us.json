@@ -1,7 +1,17 @@
 {
   "block.soul_ice.soul_ice": "Soul Ice",
-"block.soul_ice.soul_ice_slab": "Soul Ice Slab",
-"block.soul_ice.soul_ice_stairs": "Soul Ice Stairs",
-"block.soul_ice.soul_ice_wall": "Soul Ice Wall",
-"block.soul_ice.soul_ice_gate": "Soul Ice Gate"
+  "block.soul_ice.soul_ice_slab": "Soul Ice Slab",
+  "block.soul_ice.soul_ice_stairs": "Soul Ice Stairs",
+  "block.soul_ice.soul_ice_wall": "Soul Ice Wall",
+  "block.soul_ice.soul_ice_gate": "Soul Ice Gate",
+  "block.soul_ice.polished_soul_ice": "Polished Soul Ice",
+  "block.soul_ice.polished_soul_ice_slab": "Polished Soul Ice Slab",
+  "block.soul_ice.polished_soul_ice_stairs": "Polished Soul Ice Stairs",
+  "block.soul_ice.polished_soul_ice_wall": "Polished Soul Ice Wall",
+  "block.soul_ice.polished_soul_ice_gate": "Polished Soul Ice Gate",
+  "block.soul_ice.soul_ice_bricks": "Soul Ice Bricks",
+  "block.soul_ice.soul_ice_brick_slab": "Soul Ice Brick Slab",
+  "block.soul_ice.soul_ice_brick_stairs": "Soul Ice Brick Stairs",
+  "block.soul_ice.soul_ice_brick_wall": "Soul Ice Brick Wall",
+  "block.soul_ice.soul_ice_brick_gate": "Soul Ice Brick Gate"
 }
