@@ -118,3 +118,4 @@ run/
 !gradle-wrapper.jar
 /.vscode/
 /forge/src/main/resources/META-INF/accesstransformer.cfg
+/fabric/runserver/

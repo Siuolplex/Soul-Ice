@@ -8,8 +8,8 @@
     "Siuolplex"
   ],
   "contact": {},
-  "license": "MIT",
-  "icon": "assets/soulice/icon.png",
+  "license": "LGPLv3",
+  "icon": "logo.png",
   "environment": "*",
   "entrypoints": {
     "main": [
