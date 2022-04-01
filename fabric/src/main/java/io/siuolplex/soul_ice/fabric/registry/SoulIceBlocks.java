@@ -1,14 +1,14 @@
-package io.siuolplex.soul_ice;
+package io.siuolplex.soul_ice.fabric.registry;
 
+import io.siuolplex.soul_ice.SoulIceConfig;
+import io.siuolplex.soul_ice.block.SoulIceStairBlock;
+import io.siuolplex.soul_ice.util.SoulIceIDHandler;
 import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class SoulIceBlocks {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "soul_ice");
-
     public static final Block SOUL_ICE = register("soul_ice", new Block(sharedSettings()));
     public static final Block SOUL_ICE_SLAB = register("soul_ice_slab", new SlabBlock(sharedSettings()));
     public static final Block SOUL_ICE_STAIRS = register("soul_ice_stairs", new SoulIceStairBlock(SOUL_ICE.getDefaultState(), sharedSettings()));
@@ -30,9 +30,10 @@ public class SoulIceBlocks {
     public static AbstractBlock.Settings sharedSettings() {
         return Block.Settings.of(Material.DENSE_ICE, MapColor.LIGHT_BLUE).strength(3.0F).slipperiness(SoulIceConfig.instance().slipperiness).sounds(BlockSoundGroup.GLASS);
     }
-
+    
     private static Block register(String name, Block block) {
-        RegistryObject<Block> blockSupplied = BLOCKS.register(name, () -> block);
-        return block;
+        return Registry.register(Registry.BLOCK, SoulIceIDHandler.idFormatter(name), block);
     }
+
+    public static void init() {}
 }

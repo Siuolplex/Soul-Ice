@@ -1,6 +1,9 @@
 package io.siuolplex.soul_ice;
 
-import net.minecraft.tag.BlockTags;
+import io.siuolplex.soul_ice.forge.registry.SoulIceBlocks;
+import io.siuolplex.soul_ice.forge.registry.SoulIceEnchantments;
+import io.siuolplex.soul_ice.forge.registry.SoulIceItems;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -13,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 public class SoulIce {
     public static String id = "soul_ice";
 
-    public static Identifier slipFixId = idFormatter("slipperiness_fix");
+    public static Identifier soulIceSyncID = idFormatter("soul_ice_sync");
 
     public static Logger LOGGER = LogManager.getLogger("Soul Ice");
 
@@ -27,5 +30,6 @@ public class SoulIce {
     public SoulIce() {
         SoulIceBlocks.BLOCKS.register(modEventBus);
         SoulIceItems.ITEMS.register(modEventBus);
+        SoulIceEnchantments.ENCHANTMENTS.register(modEventBus);
     }
 }

@@ -19,9 +19,8 @@ public class PlayerManagerMixin {
     @Inject(method = "Lnet/minecraft/server/PlayerManager;onPlayerConnect(Lnet/minecraft/network/ClientConnection;Lnet/minecraft/server/network/ServerPlayerEntity;)V", at = @At(value = "TAIL"))
     private void soulIceSync(ClientConnection clientConnection, ServerPlayerEntity serverPlayer, CallbackInfo ci) {
         PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-        NbtCompound slipNBT = new NbtCompound();
-        slipNBT.putFloat("slipperiness", SoulIceConfig.instance().slipperiness);
-        buf.writeNbt(slipNBT);
-        serverPlayer.networkHandler.sendPacket(new CustomPayloadS2CPacket(SoulIce.slipFixId, buf));
+        buf.writeBoolean(SoulIceConfig.instance().enableUnfaltering);
+        buf.writeFloat(SoulIceConfig.instance().slipperiness);
+        serverPlayer.networkHandler.sendPacket(new CustomPayloadS2CPacket(SoulIce.soulIceSyncID, buf));
     }
 }

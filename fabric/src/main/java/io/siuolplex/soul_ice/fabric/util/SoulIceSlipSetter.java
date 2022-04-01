@@ -1,12 +1,12 @@
-package io.siuolplex.soul_ice.blocks;
+package io.siuolplex.soul_ice.fabric.util;
 
 import io.siuolplex.soul_ice.SoulIce;
 import io.siuolplex.soul_ice.mixin.AbstractBlockMixin;
 
-import static io.siuolplex.soul_ice.SoulIceBlocks.*;
+import static io.siuolplex.soul_ice.fabric.registry.SoulIceBlocks.*;
 
 public class SoulIceSlipSetter {
-    public SoulIceSlipSetter(float slipperiness) {
+    public static void soulIceSlip(float slipperiness) {
         ((AbstractBlockMixin)SOUL_ICE).setSlipperiness(slipperiness);
         ((AbstractBlockMixin)SOUL_ICE_SLAB).setSlipperiness(slipperiness);
         ((AbstractBlockMixin)SOUL_ICE_STAIRS).setSlipperiness(slipperiness);

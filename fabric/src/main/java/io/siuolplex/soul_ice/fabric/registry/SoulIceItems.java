@@ -1,18 +1,12 @@
-package io.siuolplex.soul_ice;
+package io.siuolplex.soul_ice.fabric.registry;
 
-import net.minecraft.block.Block;
+import io.siuolplex.soul_ice.util.SoulIceIDHandler;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 public class SoulIceItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "soul_ice");
-
     public static final Item SOUL_ICE = register("soul_ice", new BlockItem(SoulIceBlocks.SOUL_ICE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     public static final Item SOUL_ICE_SLAB = register("soul_ice_slab", new BlockItem(SoulIceBlocks.SOUL_ICE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     public static final Item SOUL_ICE_STAIRS = register("soul_ice_stairs", new BlockItem(SoulIceBlocks.SOUL_ICE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
@@ -32,7 +26,8 @@ public class SoulIceItems {
     public static final Item SOUL_ICE_BRICK_GATE = register("soul_ice_brick_gate", new BlockItem(SoulIceBlocks.SOUL_ICE_BRICK_GATE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
     private static Item register(String name, Item item) {
-        RegistryObject<Item> blockSupplied = ITEMS.register(name, () -> item);
-        return item;
+        return Registry.register(Registry.ITEM, SoulIceIDHandler.idFormatter(name), item);
     }
+
+    public static void init() {}
 }

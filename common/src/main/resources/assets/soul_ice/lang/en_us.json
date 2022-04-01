@@ -13,5 +13,9 @@
   "block.soul_ice.soul_ice_brick_slab": "Soul Ice Brick Slab",
   "block.soul_ice.soul_ice_brick_stairs": "Soul Ice Brick Stairs",
   "block.soul_ice.soul_ice_brick_wall": "Soul Ice Brick Wall",
-  "block.soul_ice.soul_ice_brick_gate": "Soul Ice Brick Gate"
+  "block.soul_ice.soul_ice_brick_gate": "Soul Ice Brick Gate",
+  "enchantment.soul_ice.unfaltering": "Unfaltering",
+
+  "__comment__enchantdesc": "Enchantment Description Support",
+  "enchantment.soul_ice.unfaltering.desc": "Allows for regular movement on ice"
 }
