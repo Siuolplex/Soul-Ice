@@ -16,6 +16,6 @@ public class ClientLoginNetworkHandlerMixin {
     private void soulIce$disconnectReset(Text reason, CallbackInfo ci){
         SoulIceSlipSetter.soulIceSlip(SoulIceConfig.instance().slipperiness);
         SoulIceEnchantSyncer.setIsUnfalteringEnabled(SoulIceConfig.instance().enableUnfaltering);
-
+        SoulIceEnchantSyncer.setIsFreezingEnabled(SoulIceConfig.instance().enableFreezing);
     }
 }

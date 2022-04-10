@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RR",
+    "RR"
+  ],
+  "key": {
+    "R": {
+      "item": "soul_ice:lightstone"
+    }
+  },
+  "result": {
+    "item": "soul_ice:polished_lightstone",
+    "count": 4
+  }
+}

@@ -22,7 +22,14 @@ public class UnfalteringEnchantment extends Enchantment {
     }
 
     @Override
-    public int getMinPower(int level) {return 1;}
+    public int getMinPower(int level) {
+        return 5 + 10 * (level);
+    }
+
+    @Override
+    public int getMaxPower(int level) {
+        return super.getMinPower(level) + 20;
+    }
 
     @Override
     protected boolean canAccept(Enchantment other) {

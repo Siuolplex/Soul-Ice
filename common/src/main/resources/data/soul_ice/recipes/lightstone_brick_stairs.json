@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "soul_ice:lightstone_bricks"
+    }
+  },
+  "result": {
+    "item": "soul_ice:lightstone_brick_stairs",
+    "count": 4
+  }
+}

@@ -14,13 +14,20 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static io.siuolplex.soul_ice.SoulIce.*;
+
 @Mixin(PlayerManager.class)
 public class PlayerManagerMixin {
     @Inject(method = "Lnet/minecraft/server/PlayerManager;onPlayerConnect(Lnet/minecraft/network/ClientConnection;Lnet/minecraft/server/network/ServerPlayerEntity;)V", at = @At(value = "TAIL"))
     private void soulIceSync(ClientConnection clientConnection, ServerPlayerEntity serverPlayer, CallbackInfo ci) {
-        PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-        buf.writeBoolean(SoulIceConfig.instance().enableUnfaltering);
-        buf.writeFloat(SoulIceConfig.instance().slipperiness);
-        serverPlayer.networkHandler.sendPacket(new CustomPayloadS2CPacket(SoulIce.soulIceSyncID, buf));
+        PacketByteBuf freezingBuf = new PacketByteBuf(Unpooled.buffer());
+        PacketByteBuf unfalteringBuf = new PacketByteBuf(Unpooled.buffer());
+        PacketByteBuf slipperinessBuf = new PacketByteBuf(Unpooled.buffer());
+        unfalteringBuf.writeBoolean(SoulIceConfig.instance().enableUnfaltering);
+        freezingBuf.writeBoolean(SoulIceConfig.instance().enableFreezing);
+        slipperinessBuf.writeFloat(SoulIceConfig.instance().slipperiness);
+        serverPlayer.networkHandler.sendPacket(new CustomPayloadS2CPacket(SoulIce.soulIceSyncID, slipperinessBuf));
+        serverPlayer.networkHandler.sendPacket(new CustomPayloadS2CPacket(unfalteringSyncID, unfalteringBuf));
+        serverPlayer.networkHandler.sendPacket(new CustomPayloadS2CPacket(freezingSyncID, freezingBuf));
     }
 }

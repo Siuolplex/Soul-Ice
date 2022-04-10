@@ -4,7 +4,8 @@
   "package": "io.siuolplex.soul_ice.fabric.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "FabricEntityMixin"
+    "FabricEntityMixin",
+    "FabricPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

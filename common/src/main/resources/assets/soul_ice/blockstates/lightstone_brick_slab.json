@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "type=bottom": {
+            "model": "soul_ice:block/lightstone_brick_slab"
+        },
+        "type=double": {
+            "model": "soul_ice:block/lightstone_bricks"
+        },
+        "type=top": {
+            "model": "soul_ice:block/lightstone_brick_slab_top"
+        }
+    }
+}

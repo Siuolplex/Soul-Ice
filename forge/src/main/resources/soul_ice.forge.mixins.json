@@ -3,7 +3,10 @@
   "minVersion": "0.8",
   "package": "io.siuolplex.soul_ice.forge.mixin",
   "compatibilityLevel": "JAVA_17",
-  "mixins": ["ForgeEntityMixin"],
+  "mixins": [
+    "ForgeEntityMixin",
+    "ForgePlayerEntityMixin"
+  ],
   "client": [
     "ClientPlayNetworkHandlerMixin",
     "ClientLoginNetworkHandlerMixin"

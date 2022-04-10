@@ -14,8 +14,34 @@
   "block.soul_ice.soul_ice_brick_stairs": "Soul Ice Brick Stairs",
   "block.soul_ice.soul_ice_brick_wall": "Soul Ice Brick Wall",
   "block.soul_ice.soul_ice_brick_gate": "Soul Ice Brick Gate",
+  "block.soul_ice.lightstone": "Lightstone",
+  "block.soul_ice.lightstone_slab": "Lightstone Slab",
+  "block.soul_ice.lightstone_stairs": "Lightstone Stairs",
+  "block.soul_ice.lightstone_wall": "Lightstone Wall",
+  "block.soul_ice.polished_lightstone": "Polished Lightstone",
+  "block.soul_ice.polished_lightstone_slab": "Polished Lightstone Slab",
+  "block.soul_ice.polished_lightstone_stairs": "Polished Lightstone Stairs",
+  "block.soul_ice.polished_lightstone_wall": "Polished Lightstone Wall",
+  "block.soul_ice.lightstone_bricks": "Lightstone Bricks",
+  "block.soul_ice.lightstone_brick_slab": "Lightstone Brick Slab",
+  "block.soul_ice.lightstone_brick_stairs": "Lightstone Brick Stairs",
+  "block.soul_ice.lightstone_brick_wall": "Lightstone Brick Wall",
+  "block.soul_ice.hardened_lightstone": "Hardened Lightstone",
+  "block.soul_ice.hardened_lightstone_slab": "Hardened Lightstone Slab",
+  "block.soul_ice.hardened_lightstone_stairs": "Hardened Lightstone Stairs",
+  "block.soul_ice.hardened_lightstone_wall": "Hardened Lightstone Wall",
+
+
   "enchantment.soul_ice.unfaltering": "Unfaltering",
+  "enchantment.soul_ice.freezing": "Freezing",
+
+  "item.soul_ice.cactus_helmet": "Cactus Helmet",
+  "item.soul_ice.cactus_chestplate": "Cactus Chestplate",
+  "item.soul_ice.cactus_leggings": "Cactus Leggings",
+  "item.soul_ice.cactus_boots": "Cactus Boots",
 
   "__comment__enchantdesc": "Enchantment Description Support",
-  "enchantment.soul_ice.unfaltering.desc": "Allows for regular movement on ice"
+  "enchantment.soul_ice.unfaltering.desc": "Allows for regular movement on ice",
+  "enchantment.soul_ice.freezing.desc": "Slows down the attacked person (For now)"
+
 }

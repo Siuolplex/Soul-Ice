@@ -10,6 +10,8 @@ public class SoulIceConfig {
     // Config code based on code from NotEnoughCrashes by natanfudge, found here: https://github.com/natanfudge/Not-Enough-Crashes/blob/1.18/common/src/main/java/fudge/notenoughcrashes/NecConfig.java
     public float slipperiness = 1.025f;
     public boolean enableUnfaltering = true;
+    public boolean enableFreezing = true;
+    public boolean enableLightstoneGeneration = true;
 
     public static SoulIceConfig instance() {
         if (instance != null) {
