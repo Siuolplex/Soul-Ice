@@ -23,7 +23,7 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import java.util.Arrays;
 
 public class SoulIceWorldGen {
-    private static final ConfiguredFeature<?, ?> LIGHTSTONE_GENERATION_CONFIGURED = new ConfiguredFeature(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES, SoulIceBlocks.LIGHTSTONE.getDefaultState(), 32));
+    private static final ConfiguredFeature<?, ?> LIGHTSTONE_GENERATION_CONFIGURED = new ConfiguredFeature(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES, SoulIceBlocks.LIGHTSTONE.getDefaultState(), 48));
 
     public static PlacedFeature LIGHTSTONE_GENERATION_PLACED = new PlacedFeature(
             RegistryEntry.of(LIGHTSTONE_GENERATION_CONFIGURED),

@@ -1,16 +1,9 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "RR",
-    "RR"
-  ],
-  "key": {
-    "R": {
-      "item": "soul_ice:lightstone"
-    }
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "soul_ice:lightstone"
   },
-  "result": {
-    "item": "soul_ice:hardened_lightstone",
-    "count": 4
-  }
+  "result": "soul_ice:hardened_lightstone",
+  "experience": 1.0,
+  "cookingtime": 200
 }

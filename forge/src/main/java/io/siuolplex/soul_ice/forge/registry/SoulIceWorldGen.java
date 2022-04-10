@@ -16,7 +16,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import java.util.Arrays;
 
 public class SoulIceWorldGen {
-    private static final RegistryEntry<ConfiguredFeature<?,?>> LIGHTSTONE_GENERATION_CONFIGURED = RegistryEntry.of(new ConfiguredFeature<>(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES, SoulIceBlocks.LIGHTSTONE.get().getDefaultState(), 32)));
+    private static final RegistryEntry<ConfiguredFeature<?,?>> LIGHTSTONE_GENERATION_CONFIGURED = RegistryEntry.of(new ConfiguredFeature<>(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES, SoulIceBlocks.LIGHTSTONE.get().getDefaultState(), 48)));
 
     public static RegistryEntry<PlacedFeature> LIGHTSTONE_GEN = register(LIGHTSTONE_GENERATION_CONFIGURED, "lightstone",
             CountPlacementModifier.of(2), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(-8)));
