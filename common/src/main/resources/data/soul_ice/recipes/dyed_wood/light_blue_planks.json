@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "soul_ice:vanilla_planks"
+    },
+    {
+      "item": "minecraft:light_blue_dye"
+    }
+  ],
+  "result": {
+    "item": "soul_ice:light_blue_planks",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "soul_ice:cyan_planks"
+    }
+  ],
+  "result": {
+    "item": "soul_ice:cyan_plank_button"
+  }
+}

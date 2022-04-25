@@ -27,10 +27,10 @@ repositories {
 
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fapi_version}"
 
     modRuntimeOnly "maven.modrinth:lazydfu:0.1.2"
-    modRuntimeOnly("com.terraformersmc:modmenu:3.0.1") {
+    modRuntimeOnly("com.terraformersmc:modmenu:3.1.1") {
         exclude group: "net.fabricmc"; exclude group: "net.fabricmc.fabric-api"
     }
 
@@ -60,11 +60,13 @@ jar {
     classifier "dev"
 }
 
+/*
 sourcesJar {
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources
     from commonSources.archiveFile.map { zipTree(it) }
 }
+ */
 
 components.java {
     withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {

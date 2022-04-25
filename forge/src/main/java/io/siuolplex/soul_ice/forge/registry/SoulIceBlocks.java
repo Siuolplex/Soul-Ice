@@ -10,9 +10,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class SoulIceBlocks {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "soul_ice");
+import static io.siuolplex.soul_ice.SoulIce.BLOCKS;
 
+public class SoulIceBlocks {
     public static final BlockSoundGroup LIGHTSTONE_SOUNDS = new BlockSoundGroup(1.0F, 1.5F, SoundEvents.BLOCK_POLISHED_DEEPSLATE_BREAK, SoundEvents.BLOCK_POLISHED_DEEPSLATE_STEP, SoundEvents.BLOCK_POLISHED_DEEPSLATE_PLACE, SoundEvents.BLOCK_POLISHED_DEEPSLATE_HIT, SoundEvents.BLOCK_POLISHED_DEEPSLATE_FALL);
 
     public static RegistryObject<Block> SOUL_ICE = BLOCKS.register("soul_ice", () -> new Block(sharedSettings()));
@@ -53,6 +53,10 @@ public class SoulIceBlocks {
     public static RegistryObject<Block> HARDENED_LIGHTSTONE_STAIRS = BLOCKS.register("hardened_lightstone_stairs", () -> new SoulIceStairBlock(HARDENED_LIGHTSTONE.get().getDefaultState(), sharedLightstoneSettings()));
     public static RegistryObject<Block> HARDENED_LIGHTSTONE_WALL = BLOCKS.register("hardened_lightstone_wall", () -> new WallBlock(sharedLightstoneSettings()));
 
+    public static AbstractBlock.Settings sharedPlankSettings() {
+        return Block.Settings.of(Material.WOOD).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD);
+    }
+
     public static AbstractBlock.Settings sharedSettings() {
         return Block.Settings.of(Material.DENSE_ICE, MapColor.LIGHT_BLUE).strength(3.0F).slipperiness(SoulIceConfig.instance().slipperiness).sounds(BlockSoundGroup.GLASS);
     }
@@ -60,4 +64,6 @@ public class SoulIceBlocks {
     public static AbstractBlock.Settings sharedLightstoneSettings() {
         return Block.Settings.of(Material.STONE, MapColor.WHITE).hardness(4f).sounds(LIGHTSTONE_SOUNDS);
     }
+
+    public static void init() {}
 }

@@ -3,7 +3,7 @@
   "id": "soul_ice",
   "version": "${version}",
   "name": "Soul Ice",
-  "description": "Soul Ice mod (Flushed Emoji)",
+  "description": "A mod whos name isnt all it adds",
   "authors": [
     "Siuolplex"
   ],
@@ -14,6 +14,9 @@
   "entrypoints": {
     "main": [
       "io.siuolplex.soul_ice.SoulIce"
+    ],
+    "client": [
+      "io.siuolplex.soul_ice.SoulIceClient"
     ]
   },
   "mixins": [

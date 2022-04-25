@@ -5,4 +5,4 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_version}"
 }
 
-architectury { common() }
+architectury { common("forge", "fabric", "quilt") }

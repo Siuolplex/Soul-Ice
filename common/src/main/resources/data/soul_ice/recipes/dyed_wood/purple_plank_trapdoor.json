@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "soul_ice:purple_planks"
+    }
+  },
+  "result": {
+    "item": "soul_ice:purple_plank_trapdoor",
+    "count": 2
+  }
+}

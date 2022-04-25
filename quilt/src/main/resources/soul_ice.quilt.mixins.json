@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.siuolplex.soul_ice.quilt.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "QuiltEntityMixin",
+    "QuiltPlayerEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

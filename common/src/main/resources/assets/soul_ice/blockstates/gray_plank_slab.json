@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "soul_ice:block/gray_plank_slab"
+    },
+    "type=double": {
+      "model": "soul_ice:block/gray_planks"
+    },
+    "type=top": {
+      "model": "soul_ice:block/gray_plank_slab_top"
+    }
+  }
+}

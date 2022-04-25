@@ -41,7 +41,6 @@ public class FreezingEnchantment extends Enchantment {
         if (target instanceof LivingEntity livingTarget) {
             if (target.isOnFire()) livingTarget.extinguish();
             else livingTarget.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, level * 100, 0));
-
         }
     }
 

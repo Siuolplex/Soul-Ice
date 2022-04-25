@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_fence_gate_wall",
+  "textures": {
+    "texture": "soul_ice:block/pink_planks"
+  }
+}

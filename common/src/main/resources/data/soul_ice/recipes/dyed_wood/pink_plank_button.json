@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "soul_ice:pink_planks"
+    }
+  ],
+  "result": {
+    "item": "soul_ice:pink_plank_button"
+  }
+}

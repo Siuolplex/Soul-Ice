@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "soul_ice:black_planks"
+    }
+  },
+  "result": {
+    "item": "soul_ice:black_plank_stairs",
+    "count": 4
+  }
+}

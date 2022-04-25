@@ -2,12 +2,18 @@ package io.siuolplex.soul_ice.fabric.registry;
 
 import io.siuolplex.soul_ice.SoulIceConfig;
 import io.siuolplex.soul_ice.block.SoulIceStairBlock;
+import io.siuolplex.soul_ice.fabric.entries.WoodRegistryEntrySet;
 import io.siuolplex.soul_ice.util.SoulIceIDHandler;
 import net.minecraft.block.*;
+import net.minecraft.entity.vehicle.BoatEntity;
+import net.minecraft.item.BlockItem;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+
+import static io.siuolplex.soul_ice.fabric.registry.SoulIceItems.sharedItemSettings;
 
 public class SoulIceBlocks {
     public static final BlockSoundGroup LIGHTSTONE_SOUNDS = new BlockSoundGroup(1.0F, 1.5F, SoundEvents.BLOCK_POLISHED_DEEPSLATE_BREAK, SoundEvents.BLOCK_POLISHED_DEEPSLATE_STEP, SoundEvents.BLOCK_POLISHED_DEEPSLATE_PLACE, SoundEvents.BLOCK_POLISHED_DEEPSLATE_HIT, SoundEvents.BLOCK_POLISHED_DEEPSLATE_FALL);
@@ -50,6 +56,10 @@ public class SoulIceBlocks {
     public static final Block HARDENED_LIGHTSTONE_STAIRS = register("hardened_lightstone_stairs", new SoulIceStairBlock(HARDENED_LIGHTSTONE.getDefaultState(), sharedLightstoneSettings()));
     public static final Block HARDENED_LIGHTSTONE_WALL = register("hardened_lightstone_wall", new WallBlock(sharedLightstoneSettings()));
 
+
+    public static AbstractBlock.Settings sharedPlankSettings() {
+        return Block.Settings.of(Material.WOOD).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD);
+    }
 
     public static AbstractBlock.Settings sharedSettings() {
         return Block.Settings.of(Material.DENSE_ICE, MapColor.LIGHT_BLUE).strength(3.0F).slipperiness(SoulIceConfig.instance().slipperiness).sounds(BlockSoundGroup.GLASS);

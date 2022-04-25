@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_rh",
+  "textures": {
+    "top": "soul_ice:block/light_blue_plank_door_top",
+    "bottom": "soul_ice:block/light_blue_plank_door_bottom"
+  }
+}
