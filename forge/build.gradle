@@ -8,7 +8,7 @@ version = rootProject.version + "-forge"
 
 architectury {
     platformSetupLoomIde()
-    forge()
+    loader("forge")
 }
 
 configurations {
