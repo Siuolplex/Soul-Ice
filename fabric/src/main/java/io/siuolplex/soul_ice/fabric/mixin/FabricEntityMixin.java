@@ -29,8 +29,6 @@ import static java.lang.Boolean.TRUE;
 
 @Mixin(value = Entity.class, priority = 999)
 public abstract class FabricEntityMixin {
-    @Shadow public abstract Box getBoundingBox();
-
     @Inject(method = "slowMovement(Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/Vec3d;)V", at = @At("HEAD"), cancellable = true)
     private void soulIceFabric$forUnfaltering(BlockState state, Vec3d multiplier, CallbackInfo ci) {
         if (unfalteringCheck()) ci.cancel();
@@ -43,20 +41,10 @@ public abstract class FabricEntityMixin {
 
     @Inject(method = "getVelocityAffectingPos()Lnet/minecraft/util/math/BlockPos;", at = @At("RETURN"), cancellable = true)
     private void soulIceFabric$nullifiedVelocity(CallbackInfoReturnable<BlockPos> cir) {
-        BlockPos velocityAffectingPos = SoulIceVelocityFixer.velocityFix(((Entity)((Object) this)));
-        if (unfalteringCheck() && blockPosCheck((Entity)((Object) this))) {
-            velocityAffectingPos = new BlockPos(cir.getReturnValue().getX(), this.getBoundingBox().minY + 0.5000001, cir.getReturnValue().getZ());
-        }
-        cir.setReturnValue(velocityAffectingPos);
+        cir.setReturnValue(SoulIceVelocityFixer.velocityFix(((Entity)((Object) this))));
     }
 
     private boolean unfalteringCheck() {
         return ((Entity)((Object) this) instanceof LivingEntity player && EnchantmentHelper.getEquipmentLevel(SoulIceEnchantments.UNFALTERING, player) > 0);
-    }
-
-    private static boolean blockPosCheck(Entity player) {
-        World world = player.getWorld();
-        BlockPos blockPos = player.getBlockPos();
-        return (world.getBlockState(blockPos.down()).getBlock().getSlipperiness() != 0.6f || world.getBlockState(blockPos).getBlock().getSlipperiness() != 0.6f);
     }
 }

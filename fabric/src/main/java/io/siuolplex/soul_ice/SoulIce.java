@@ -41,11 +41,10 @@ public class SoulIce implements ModInitializer {
         SoulIceItems.init();
         SoulIceEnchantments.init();
         SoulIceWorldGen.init();
-
-        if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
-            ClientEventHelper.registerClientPackets();
-        }
-
         ServerNetHelper.readyThePackets();
+
+        if (FabricLoader.getInstance().isModLoaded("quilt_loader")){
+            LOGGER.warn("Quilt Loader detected, Soul Ice has native Quilt versions, you know! Please download them from Curseforge/Modrinth");
+        }
     }
 }

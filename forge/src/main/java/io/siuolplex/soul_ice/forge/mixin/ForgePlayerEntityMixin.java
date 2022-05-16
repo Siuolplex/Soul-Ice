@@ -20,8 +20,8 @@ public abstract class ForgePlayerEntityMixin {
 
     @Inject(method = "damage(Lnet/minecraft/entity/damage/DamageSource;F)Z", at = @At("TAIL"))
     public void soulIceForge$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if (cactusArmorCheck() && !source.isMagic() && !source.isExplosive() && source.getSource() instanceof LivingEntity b) {
-            b.damage(DamageSource.thorns((Entity)((Object) this)), 1F);
+        if (cactusArmorCheck() && !source.isMagic() && !source.isExplosive() && !source.isProjectile() && source.getSource() instanceof LivingEntity b) {
+            b.damage(DamageSource.thorns(((PlayerEntity)((Object) this))), 1F); //todo: Make this a non-magical thorns
         }
     }
 

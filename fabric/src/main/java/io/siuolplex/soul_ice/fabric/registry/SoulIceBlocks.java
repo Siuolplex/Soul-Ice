@@ -2,9 +2,11 @@ package io.siuolplex.soul_ice.fabric.registry;
 
 import io.siuolplex.soul_ice.SoulIceConfig;
 import io.siuolplex.soul_ice.block.SoulIceStairBlock;
+import io.siuolplex.soul_ice.fabric.block.RujoneBerryBushBlock;
 import io.siuolplex.soul_ice.fabric.entries.WoodRegistryEntrySet;
 import io.siuolplex.soul_ice.util.SoulIceIDHandler;
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.sound.BlockSoundGroup;
@@ -55,6 +57,9 @@ public class SoulIceBlocks {
     public static final Block HARDENED_LIGHTSTONE_SLAB = register("hardened_lightstone_slab", new SlabBlock(sharedLightstoneSettings()));
     public static final Block HARDENED_LIGHTSTONE_STAIRS = register("hardened_lightstone_stairs", new SoulIceStairBlock(HARDENED_LIGHTSTONE.getDefaultState(), sharedLightstoneSettings()));
     public static final Block HARDENED_LIGHTSTONE_WALL = register("hardened_lightstone_wall", new WallBlock(sharedLightstoneSettings()));
+
+    public static final Block RUJONE_BERRY_BUSH = register("rujone_berry_bush", new RujoneBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
+    public static final Block ORANGE_ROSE = register("orange_rose", new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 120, AbstractBlock.Settings.of(Material.PLANT, MapColor.ORANGE).breakInstantly().dynamicBounds().sounds(BlockSoundGroup.GRASS)));
 
 
     public static AbstractBlock.Settings sharedPlankSettings() {

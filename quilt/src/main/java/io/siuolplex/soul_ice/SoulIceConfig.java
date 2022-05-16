@@ -3,6 +3,7 @@ package io.siuolplex.soul_ice;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.fabricmc.loader.api.FabricLoader;
+import org.quiltmc.loader.api.QuiltLoader;
 
 import java.io.*;
 
@@ -12,6 +13,9 @@ public class SoulIceConfig {
     public boolean enableUnfaltering = true;
     public boolean enableFreezing = true;
     public boolean enableLightstoneGeneration = true;
+    public boolean enableRujoneBerryGeneration = true;
+    public boolean enableOrangeRoseGeneration = true;
+
 
     public static SoulIceConfig instance() {
         if (instance != null) {
@@ -37,7 +41,7 @@ public class SoulIceConfig {
         return instance;
     }
 
-    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(),  "soul_ice_config.json");
+    private static final File CONFIG_FILE = new File(QuiltLoader.getConfigDir().toFile(),  "soul_ice_config.json");
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static SoulIceConfig instance = null;
 }

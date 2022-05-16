@@ -12,6 +12,8 @@ public class SoulIceConfig {
     public boolean enableUnfaltering = true;
     public boolean enableFreezing = true;
     public boolean enableLightstoneGeneration = true;
+    public boolean enableRujoneBerryGeneration = true;
+    public boolean enableOrangeRoseGeneration = true;
 
     public static SoulIceConfig instance() {
         if (instance != null) {

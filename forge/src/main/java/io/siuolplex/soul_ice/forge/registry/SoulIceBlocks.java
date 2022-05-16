@@ -2,7 +2,9 @@ package io.siuolplex.soul_ice.forge.registry;
 
 import io.siuolplex.soul_ice.SoulIceConfig;
 import io.siuolplex.soul_ice.block.SoulIceStairBlock;
+import io.siuolplex.soul_ice.forge.blocks.RujoneBerryBushBlock;
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraftforge.common.util.ForgeSoundType;
@@ -52,6 +54,11 @@ public class SoulIceBlocks {
     public static RegistryObject<Block> HARDENED_LIGHTSTONE_SLAB = BLOCKS.register("hardened_lightstone_slab", () -> new SlabBlock(sharedLightstoneSettings()));
     public static RegistryObject<Block> HARDENED_LIGHTSTONE_STAIRS = BLOCKS.register("hardened_lightstone_stairs", () -> new SoulIceStairBlock(HARDENED_LIGHTSTONE.get().getDefaultState(), sharedLightstoneSettings()));
     public static RegistryObject<Block> HARDENED_LIGHTSTONE_WALL = BLOCKS.register("hardened_lightstone_wall", () -> new WallBlock(sharedLightstoneSettings()));
+
+    public static RegistryObject<Block> RUJONE_BERRY_BUSH = BLOCKS.register("rujone_berry_bush", () -> new RujoneBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
+    public static RegistryObject<Block> ORANGE_ROSE = BLOCKS.register("orange_rose", () -> new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 120, AbstractBlock.Settings.of(Material.PLANT, MapColor.ORANGE).breakInstantly().dynamicBounds()));
+
+
 
     public static AbstractBlock.Settings sharedPlankSettings() {
         return Block.Settings.of(Material.WOOD).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD);

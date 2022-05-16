@@ -3,6 +3,7 @@ package io.siuolplex.soul_ice.quilt.mixin;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.EntityDamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,8 +22,8 @@ public abstract class QuiltPlayerEntityMixin {
 
     @Inject(method = "damage(Lnet/minecraft/entity/damage/DamageSource;F)Z", at = @At("TAIL"))
     public void soulIceQuilt$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if (cactusArmorCheck() && !source.isMagic() && !source.isExplosive() && source.getSource() instanceof LivingEntity b) {
-            b.damage(DamageSource.thorns((Entity)((Object) this)), 1F);
+        if (cactusArmorCheck() && !source.isMagic() && !source.isExplosive() && !source.isProjectile() && source.getSource() instanceof LivingEntity b) {
+            b.damage(DamageSource.thorns(((PlayerEntity)((Object) this))), 1F); //todo: Make this a non-magical thorns
         }
     }
 

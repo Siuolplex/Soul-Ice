@@ -63,8 +63,14 @@ public class SoulIce {
     }
 
     public static void onBiomeLoad(BiomeLoadingEvent ble) {
-        if (!ble.getCategory().equals(Biome.Category.THEEND) || !ble.getCategory().equals(Biome.Category.NETHER) && (SoulIceConfig.instance().enableLightstoneGeneration)) {
-            ble.getGeneration().feature(GenerationStep.Feature.UNDERGROUND_ORES, SoulIceWorldGen.LIGHTSTONE_GEN);
+        if (!ble.getCategory().equals(Biome.Category.THEEND) || !ble.getCategory().equals(Biome.Category.NETHER) && SoulIceConfig.instance().enableLightstoneGeneration) {
+            ble.getGeneration().feature(GenerationStep.Feature.UNDERGROUND_ORES, SoulIceWorldGen.MTJSIPlacedFeatures.LIGHTSTONE);
+        }
+        if (ble.getCategory().equals(Biome.Category.PLAINS) && SoulIceConfig.instance().enableOrangeRoseGeneration) {
+            ble.getGeneration().feature(GenerationStep.Feature.VEGETAL_DECORATION, SoulIceWorldGen.MTJSIPlacedFeatures.ORANGE_ROSE);
+        }
+        if (ble.getCategory().equals(Biome.Category.DESERT) && SoulIceConfig.instance().enableRujoneBerryGeneration) {
+            ble.getGeneration().feature(GenerationStep.Feature.VEGETAL_DECORATION, SoulIceWorldGen.MTJSIPlacedFeatures.RUJONE_BERRY);
         }
     }
 

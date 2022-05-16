@@ -119,3 +119,5 @@ run/
 /.vscode/
 /forge/src/main/resources/META-INF/accesstransformer.cfg
 /fabric/runserver/
+/forge/runserver/
+/quilt/runserver/

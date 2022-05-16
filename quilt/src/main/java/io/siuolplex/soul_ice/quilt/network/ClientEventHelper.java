@@ -44,7 +44,7 @@ public class ClientEventHelper {
         SoulIceEnchantSyncer.setIsFreezingEnabled(SoulIceConfig.instance().enableFreezing);
         SoulIceSlipSetter.soulIceSlip(SoulIceConfig.instance().slipperiness);
         player.sendChatMessage("Soul Ice Sync failed! Check log for more info. Please be cautious while playing");
-        LOGGER.warn("Soul Ice Sync Packet null, continueing to play using client's configuration.");
+        LOGGER.warn("Soul Ice Sync Packet null, continuing to play using client's configuration.");
         LOGGER.warn("If this error appeared, and the server runs Soul Ice, please contact the server owner.");
         LOGGER.warn("Otherwise, please send a bug report to https://github.com/Siuolthepic/Soul-Ice or talk to the mod's dev, Siuol.");
     }

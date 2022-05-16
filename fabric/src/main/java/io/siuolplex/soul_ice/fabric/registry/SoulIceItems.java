@@ -1,6 +1,7 @@
 package io.siuolplex.soul_ice.fabric.registry;
 
 import io.siuolplex.soul_ice.fabric.entries.WoodRegistryEntrySet;
+import io.siuolplex.soul_ice.items.SoulIceArmorMaterial;
 import io.siuolplex.soul_ice.util.SoulIceIDHandler;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
@@ -16,6 +17,7 @@ import static io.siuolplex.soul_ice.fabric.registry.SoulIceBlocks.sharedPlankSet
 
 public class SoulIceItems {
     public static final ArmorMaterial CactusArmorMaterial = new CactusArmorMaterial();
+    public static final ArmorMaterial SoulIceCoveredArmorMaterial = new SoulIceArmorMaterial();
 
     public static final Item SOUL_ICE = register("soul_ice", new BlockItem(SoulIceBlocks.SOUL_ICE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     public static final Item SOUL_ICE_SLAB = register("soul_ice_slab", new BlockItem(SoulIceBlocks.SOUL_ICE_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
@@ -52,11 +54,16 @@ public class SoulIceItems {
     public static final Item HARDENED_LIGHTSTONE_STAIRS = register("hardened_lightstone_stairs", new BlockItem(SoulIceBlocks.HARDENED_LIGHTSTONE_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     public static final Item HARDENED_LIGHTSTONE_WALL = register("hardened_lightstone_wall", new BlockItem(SoulIceBlocks.HARDENED_LIGHTSTONE_WALL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
-    public static final Item CACTUS_HELMET = register("cactus_helmet", new ArmorItem(CactusArmorMaterial, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)));
-    public static final Item CACTUS_CHESTPLATE = register("cactus_chestplate", new ArmorItem(CactusArmorMaterial, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)));
-    public static final Item CACTUS_LEGGINGS = register("cactus_leggings", new ArmorItem(CactusArmorMaterial, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)));
-    public static final Item CACTUS_BOOTS = register("cactus_boots", new ArmorItem(CactusArmorMaterial, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)));
-    
+    public static final Item ORANGE_ROSE = register("orange_rose", new BlockItem(SoulIceBlocks.ORANGE_ROSE, new Item.Settings().group(ItemGroup.DECORATIONS)));
+    public static final Item RUJONE_BERRIES = register("rujone_berries", new AliasedBlockItem(SoulIceBlocks.RUJONE_BERRY_BUSH, new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.8f).build())));
+
+    public static final Item CACTUS_HELMET = register("cactus_helmet", new ArmorItem(CactusArmorMaterial, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT)));
+    public static final Item CACTUS_CHESTPLATE = register("cactus_chestplate", new ArmorItem(CactusArmorMaterial, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT)));
+    public static final Item CACTUS_LEGGINGS = register("cactus_leggings", new ArmorItem(CactusArmorMaterial, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT)));
+    public static final Item CACTUS_BOOTS = register("cactus_boots", new ArmorItem(CactusArmorMaterial, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT)));
+
+    public static final Item SOUL_ICE_COVERED_LEATHER_BOOTS = register("soul_ice_covered_leather_boots", new ArmorItem(SoulIceCoveredArmorMaterial, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT)));
+
     public static final String dyedWood = "dyed_wood";
     
     public static final WoodRegistryEntrySet RED = quickSet(DyeColor.RED);

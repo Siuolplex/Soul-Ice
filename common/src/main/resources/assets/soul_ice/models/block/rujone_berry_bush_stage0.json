@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "soul_ice:block/rujone_berry_bush_stage0"
+  }
+}

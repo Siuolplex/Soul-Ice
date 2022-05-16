@@ -22,6 +22,8 @@ public class BoatEntityMixin {
             yawVelocity = 5F;
         } else if (value < -5F && this.location.equals(BoatEntity.Location.ON_LAND)) {
             yawVelocity = -5F;
+        } else {
+            yawVelocity *= velocityDecay;
         }
     }
 }

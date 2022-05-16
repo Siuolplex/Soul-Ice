@@ -5,10 +5,9 @@ plugins {
 
 version = rootProject.version + "-forge"
 
-
 architectury {
     platformSetupLoomIde()
-    loader("forge")
+    forge()
 }
 
 configurations {
@@ -17,6 +16,15 @@ configurations {
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
     developmentForge.extendsFrom common
+}
+
+repositories {
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 dependencies {
@@ -36,7 +44,8 @@ processResources {
 
 loom {
     forge {
-        mixinConfigs = [ "soul_ice.mixins.json", "soul_ice.forge.mixins.json" ]
+        mixinConfig "soul_ice.mixins.json"
+        mixinConfig "soul_ice.forge.mixins.json"
     }
 }
 

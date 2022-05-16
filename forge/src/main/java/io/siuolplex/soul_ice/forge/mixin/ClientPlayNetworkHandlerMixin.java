@@ -43,7 +43,7 @@ public class ClientPlayNetworkHandlerMixin {
             client.execute(() -> handleNPE(client.player));
         }
 
-        ci.cancel();
+        //ci.cancel();
     }
 
     private static void handleNPE(ClientPlayerEntity player) {

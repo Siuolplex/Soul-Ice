@@ -2,6 +2,7 @@ package io.siuolplex.soul_ice.forge.registry;
 
 import io.siuolplex.soul_ice.forge.entries.WoodRegistryEntrySet;
 import io.siuolplex.soul_ice.items.CactusArmorMaterial;
+import io.siuolplex.soul_ice.items.SoulIceArmorMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.entity.EquipmentSlot;
@@ -15,6 +16,7 @@ import static io.siuolplex.soul_ice.SoulIce.ITEMS;
 
 public class SoulIceItems {
     public static final ArmorMaterial CactusArmorMaterial = new CactusArmorMaterial();
+    public static final ArmorMaterial SoulIceCoveredArmorMaterial = new SoulIceArmorMaterial();
 
     public static RegistryObject<Item> SOUL_ICE = ITEMS.register("soul_ice", () -> new BlockItem(SoulIceBlocks.SOUL_ICE.get(), new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     public static RegistryObject<Item> SOUL_ICE_SLAB = ITEMS.register("soul_ice_slab", () -> new BlockItem(SoulIceBlocks.SOUL_ICE_SLAB.get(), new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
@@ -54,10 +56,16 @@ public class SoulIceItems {
     public static RegistryObject<Item> HARDENED_LIGHTSTONE_STAIRS = ITEMS.register("hardened_lightstone_stairs", () -> new BlockItem(SoulIceBlocks.HARDENED_LIGHTSTONE_STAIRS.get(), new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     public static RegistryObject<Item> HARDENED_LIGHTSTONE_WALL = ITEMS.register("hardened_lightstone_wall", () -> new BlockItem(SoulIceBlocks.HARDENED_LIGHTSTONE_WALL.get(), new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
+    public static RegistryObject<Item> ORANGE_ROSE = ITEMS.register("orange_rose", () -> new BlockItem(SoulIceBlocks.ORANGE_ROSE.get(), new Item.Settings().group(ItemGroup.DECORATIONS)));
+    public static RegistryObject<Item> RUJONE_BERRIES = ITEMS.register("rujone_berries", () -> new AliasedBlockItem(SoulIceBlocks.RUJONE_BERRY_BUSH.get(), new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.8f).build())));
+
     public static RegistryObject<Item> CACTUS_HELMET = ITEMS.register("cactus_helmet", () -> new ArmorItem(CactusArmorMaterial, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT)));
     public static RegistryObject<Item> CACTUS_CHESTPLATE = ITEMS.register("cactus_chestplate", () -> new ArmorItem(CactusArmorMaterial, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT)));
     public static RegistryObject<Item> CACTUS_LEGGINGS = ITEMS.register("cactus_leggings", () -> new ArmorItem(CactusArmorMaterial, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT)));
     public static RegistryObject<Item> CACTUS_BOOTS = ITEMS.register("cactus_boots", () -> new ArmorItem(CactusArmorMaterial, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT)));
+
+    public static RegistryObject<Item> SOUL_ICE_COVERED_LEATHER_BOOTS = ITEMS.register("soul_ice_covered_leather_boots", () -> new ArmorItem(SoulIceCoveredArmorMaterial, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT)));
+
 
     public static Item.Settings sharedItemSettings() {
         return new Item.Settings().group(ItemGroup.BUILDING_BLOCKS);
