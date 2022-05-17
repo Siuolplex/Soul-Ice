@@ -25,17 +25,14 @@ import java.util.List;
 // Based on similar code by supersaiyansubtlety, made for Defaulted Drops, which is licensed under MIT, and found here: https://gitlab.com/supersaiyansubtlety-group/minecraft-mods/defaulted_drops/-/tree/master/
 @Mixin(AbstractBlock.class)
 public abstract class AbstractBlockMixin {
-    @Shadow
-    public abstract Item asItem();
-
     @Inject(method = "getDroppedStacks", cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD, at = @At(value = "INVOKE", target = "Lnet/minecraft/loot/LootTable;generateLoot(Lnet/minecraft/loot/context/LootContext;)Ljava/util/List;"))
     private void addSelfIfNoLootTable(BlockState state, LootContext.Builder builder, CallbackInfoReturnable<List<ItemStack>> cir, Identifier id, LootContext context, ServerWorld world, LootTable lootTable) {
         if (lootTable.equals(LootTable.EMPTY) && id.getNamespace().equals("soul_ice")) {
             if (state.getBlock() instanceof SlabBlock && state.get(SlabBlock.TYPE).equals(SlabType.DOUBLE)) {
-                cir.setReturnValue(List.of(new ItemStack(this.asItem()), new ItemStack(this.asItem())));
+                cir.setReturnValue(List.of(new ItemStack(state.getBlock().asItem()), new ItemStack(state.getBlock().asItem())));
             } else if (state.getBlock() instanceof DoorBlock && state.get(DoorBlock.HALF).equals(DoubleBlockHalf.UPPER)) {
                 cir.setReturnValue(List.of(Items.AIR.getDefaultStack()));
-            } else cir.setReturnValue(List.of(new ItemStack(this.asItem())));
+            } else cir.setReturnValue(List.of(new ItemStack(state.getBlock().asItem())));
         }
     }
 }

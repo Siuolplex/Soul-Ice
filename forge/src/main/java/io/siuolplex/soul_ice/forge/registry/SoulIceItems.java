@@ -5,6 +5,7 @@ import io.siuolplex.soul_ice.items.CactusArmorMaterial;
 import io.siuolplex.soul_ice.items.SoulIceArmorMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
+import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;

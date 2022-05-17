@@ -44,8 +44,7 @@ processResources {
 
 loom {
     forge {
-        mixinConfig "soul_ice.mixins.json"
-        mixinConfig "soul_ice.forge.mixins.json"
+        mixinConfigs = [ "soul_ice.mixins.json", "soul_ice.forge.mixins.json" ]
     }
 }
 

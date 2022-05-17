@@ -4,6 +4,7 @@
   "package": "io.siuolplex.soul_ice.fabric.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "FabricArmorFeatureRendererMixin",
     "FabricEntityMixin",
     "FabricPlayerEntityMixin"
   ],

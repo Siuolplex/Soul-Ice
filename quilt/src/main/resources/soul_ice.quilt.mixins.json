@@ -4,6 +4,7 @@
   "package": "io.siuolplex.soul_ice.quilt.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "QuiltArmorFeatureRendererMixin",
     "QuiltEntityMixin",
     "QuiltLivingEntityMixin",
     "QuiltPlayerEntityMixin"

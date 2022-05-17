@@ -22,15 +22,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import static io.siuolplex.soul_ice.util.SoulIceVelocityFixer.*;
 
 @Mixin(value = Entity.class, priority = 999)
-public abstract class ForgeEntityMixin {
-    @Shadow public abstract Box getBoundingBox();
-    /*
-    "ClientPlayNetworkHandlerMixin",
-
-     */
-
+public class ForgeEntityMixin {
     @Inject(method = "slowMovement(Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/Vec3d;)V", at = @At("HEAD"), cancellable = true)
-    private void soulIceForge$forUnfaltering(BlockState state, Vec3d multiplier, CallbackInfo ci) {
+    private void soulIceForge$forUnfaltering(CallbackInfo ci) {
         if (unfalteringCheck()) ci.cancel();
     }
 

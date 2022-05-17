@@ -7,13 +7,13 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "renewal:rujone_berries"
+          "name": "soul_ice:rujone_berries"
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:block_state_property",
-          "block": "renewal:rujone_berry_bush",
+          "block": "soul_ice:rujone_berry_bush",
           "properties": {
             "age": "3"
           }
@@ -45,13 +45,13 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "renewal:rujone_berries"
+          "name": "soul_ice:rujone_berries"
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:block_state_property",
-          "block": "renewal:rujone_berry_bush",
+          "block": "soul_ice:rujone_berry_bush",
           "properties": {
             "age": "2"
           }

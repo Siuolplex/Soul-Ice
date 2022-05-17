@@ -1,5 +1,6 @@
 package io.siuolplex.soul_ice.items;
 
+import io.siuolplex.soul_ice.util.LoaderUtils;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
@@ -38,6 +39,7 @@ public class CactusArmorMaterial implements ArmorMaterial {
 
     @Override
     public String getName() {
+        if (LoaderUtils.isForge) return "soul_ice:cactus";
         return "cactus";
     }
 

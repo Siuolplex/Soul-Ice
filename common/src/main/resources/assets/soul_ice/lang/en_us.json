@@ -183,6 +183,10 @@
   "item.soul_ice.cactus_chestplate": "Cactus Chestplate",
   "item.soul_ice.cactus_leggings": "Cactus Leggings",
   "item.soul_ice.cactus_boots": "Cactus Boots",
+  "item.soul_ice.soul_ice_covered_leather_boots": "Soul Ice Covered Leather Boots",
+  "item.soul_ice.rujone_berries": "Rujone Berries",
+  "block.soul_ice.rujone_berry_bush": "Rujone Berry Bush",
+  "block.soul_ice.orange_rose": "Orange Rose",
 
   "__comment__enchantdesc": "Enchantment Description Support",
   "enchantment.soul_ice.unfaltering.desc": "Allows for regular movement on ice",

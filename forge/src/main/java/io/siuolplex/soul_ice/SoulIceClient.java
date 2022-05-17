@@ -3,9 +3,12 @@ package io.siuolplex.soul_ice;
 import io.siuolplex.soul_ice.forge.registry.SoulIceBlocks;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderLayers;
+import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ForgeHooksClient;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -23,6 +26,7 @@ public class SoulIceClient {
                 RenderLayers.setRenderLayer(Registry.BLOCK.get(idFormatter(color.toString() + "_plank_door")), RenderLayer.getCutout());
                 RenderLayers.setRenderLayer(Registry.BLOCK.get(idFormatter(color.toString() + "_plank_trapdoor")), RenderLayer.getCutout());
             }
+
         });
     }
 }
