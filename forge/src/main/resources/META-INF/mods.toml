@@ -6,13 +6,13 @@ license = "LGPL-3.0-only"
 [[mods]]
 modId = "soul_ice"
 version = "${version}"
-displayName = "Soul Ice"
+displayName = "More than just Soul Ice"
 displayURL = ""
 authors = [
-    "Siuol"
+    "Siuolplex"
 ]
 description = '''
-Soul Ice (Flushed Emoji)
+A mod about adding whatever comes to the Author's mind! Named after the former Consistency+ block and now MTJSI block, Soul Ice
 '''
 logoFile = "icon.png"
 

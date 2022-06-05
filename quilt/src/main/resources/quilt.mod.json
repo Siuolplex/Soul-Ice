@@ -1,13 +1,14 @@
 {
   "schema_version": 1,
   "quilt_loader": {
-    "group": "${group}",
+    "group": "io.siuolplex",
     "id": "soul_ice",
     "provides": [],
     "version": "${version}",
     "entrypoints": {
       "init": "io.siuolplex.soul_ice.SoulIce",
-      "client_init": "io.siuolplex.soul_ice.SoulIceClient"
+      "client_init": "io.siuolplex.soul_ice.SoulIceClient",
+      "modmenu": "io.siuolplex.soul_ice.MTJSIModMenu"
     },
     "depends": [
       {
@@ -31,8 +32,8 @@
       }
     ],
     "metadata": {
-      "name": "Soul Ice",
-      "description": "The Soul Ice you know and love now on Quilt",
+      "name": "More than just Soul Ice",
+      "description": "A mod about adding whatever comes to the author's mind! Named after the former Consistency+ block and now MTJSI block, Soul Ice",
       "contributors": {
         "Siuolplex": "Developer"
       },

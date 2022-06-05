@@ -1,7 +1,6 @@
 package io.siuolplex.soul_ice.items;
 
-import io.siuolplex.soul_ice.registry.SoulIceTags;
-import io.siuolplex.soul_ice.util.LoaderUtils;
+import io.siuolplex.soul_ice.util.Loader;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
@@ -40,7 +39,7 @@ public class SoulIceArmorMaterial implements ArmorMaterial {
 
     @Override
     public String getName() {
-        if (LoaderUtils.isForge) return "soul_ice:soul_ice_covered_leather";
+        if (!Loader.isFabricBased()) return "soul_ice:soul_ice_covered_leather";
         return "soul_ice_covered_leather";
     }
 

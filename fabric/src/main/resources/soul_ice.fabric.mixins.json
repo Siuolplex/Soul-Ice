@@ -1,12 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "io.siuolplex.soul_ice.fabric.mixin",
+  "package": "io.siuolplex.soul_ice.mixins.fabric",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "FabricArmorFeatureRendererMixin",
-    "FabricEntityMixin",
-    "FabricPlayerEntityMixin"
+    "ArmorFeatureRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,18 +1,15 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "io.siuolplex.soul_ice.forge.mixin",
+  "package": "io.siuolplex.soul_ice.mixins.forge",
   "compatibilityLevel": "JAVA_17",
-  "mixins": [
-    "ForgeEntityMixin",
-    "ForgeLivingEntityMixin",
-    "ForgePlayerEntityMixin"
-  ],
   "client": [
     "ClientPlayNetworkHandlerMixin",
     "ClientLoginNetworkHandlerMixin"
   ],
-  "server": ["PlayerManagerMixin"],
+  "server": [
+    "PlayerManagerMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

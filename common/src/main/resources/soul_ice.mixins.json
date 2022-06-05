@@ -6,7 +6,6 @@
   "mixins": [
     "AbstractBlockAccessor",
     "AbstractBlockMixin",
-    "BoatEntityAccessor",
     "BoatEntityMixin",
     "EnchantmentAccessor"
   ],

@@ -30,7 +30,7 @@ dependencies {
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fapi_version}"
 
     //modRuntimeOnly "maven.modrinth:lazydfu:0.1.2"
-    modRuntimeOnly("com.terraformersmc:modmenu:3.1.1") {
+    modImplementation("com.terraformersmc:modmenu:3.2.0") {
         exclude group: "net.fabricmc"; exclude group: "net.fabricmc.fabric-api"
     }
 
