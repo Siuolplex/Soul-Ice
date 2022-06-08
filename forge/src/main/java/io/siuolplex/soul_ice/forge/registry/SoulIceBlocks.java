@@ -56,7 +56,7 @@ public class SoulIceBlocks {
     public static RegistryObject<Block> HARDENED_LIGHTSTONE_WALL = BLOCKS.register("hardened_lightstone_wall", () -> new WallBlock(sharedLightstoneSettings()));
 
     public static RegistryObject<Block> RUJONE_BERRY_BUSH = BLOCKS.register("rujone_berry_bush", () -> new RujoneBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
-    public static RegistryObject<Block> ORANGE_ROSE = BLOCKS.register("orange_rose", () -> new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 120, AbstractBlock.Settings.of(Material.PLANT, MapColor.ORANGE).breakInstantly().dynamicBounds()));
+    public static RegistryObject<Block> ORANGE_ROSE = BLOCKS.register("orange_rose", () -> new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 120, AbstractBlock.Settings.of(Material.PLANT, MapColor.ORANGE).breakInstantly().dynamicBounds().noCollision()));
 
 
 

@@ -59,7 +59,7 @@ public class SoulIceBlocks {
     public static final Block HARDENED_LIGHTSTONE_WALL = register("hardened_lightstone_wall", new WallBlock(sharedLightstoneSettings()));
 
     public static final Block RUJONE_BERRY_BUSH = register("rujone_berry_bush", new RujoneBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
-    public static final Block ORANGE_ROSE = register("orange_rose", new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 120, AbstractBlock.Settings.of(Material.PLANT, MapColor.ORANGE).breakInstantly().dynamicBounds().sounds(BlockSoundGroup.GRASS)));
+    public static final Block ORANGE_ROSE = register("orange_rose", new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 120, AbstractBlock.Settings.of(Material.PLANT, MapColor.ORANGE).breakInstantly().dynamicBounds().sounds(BlockSoundGroup.GRASS).noCollision()));
 
 
     public static AbstractBlock.Settings sharedPlankSettings() {
