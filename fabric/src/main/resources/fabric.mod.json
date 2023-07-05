@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "soul_ice",
   "version": "${version}",
-  "name": "More than just Soul Ice",
-  "description": "A mod about adding whatever comes to the Author's mind! Named after the former Consistency+ block and now MTJSI block, Soul Ice",
+  "name": "Soul Ice",
+  "description": "A mod whos name isnt all it adds",
   "authors": [
     "Siuolplex"
   ],
@@ -13,15 +13,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.siuolplex.soul_ice.SoulIce"
-    ],
-    "client": [
-      "io.siuolplex.soul_ice.SoulIceClient"
+      "io.siuolplex.soulice.fabric.SoulIceFabric"
     ]
   },
   "mixins": [
-    "soul_ice.mixins.json",
-    "soul_ice.fabric.mixins.json"
+    "soul_ice.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.13.3",

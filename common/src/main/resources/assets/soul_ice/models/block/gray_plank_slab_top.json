@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "soul_ice:block/gray_planks",
-    "top": "soul_ice:block/gray_planks",
-    "side": "soul_ice:block/gray_planks"
-  }
-}

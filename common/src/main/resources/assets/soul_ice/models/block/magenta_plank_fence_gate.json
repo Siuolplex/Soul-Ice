@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_fence_gate",
-  "textures": {
-    "texture": "soul_ice:block/magenta_planks"
-  }
-}

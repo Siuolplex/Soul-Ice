@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "soul_ice:block/brown_planks",
-    "top": "soul_ice:block/brown_planks",
-    "side": "soul_ice:block/brown_planks"
-  }
-}

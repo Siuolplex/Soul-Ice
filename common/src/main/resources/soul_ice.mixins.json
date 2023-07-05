@@ -1,13 +1,13 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "io.siuolplex.soul_ice.mixin",
+  "package": "io.siuolplex.soulice.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AbstractBlockAccessor",
     "AbstractBlockMixin",
-    "BoatEntityMixin",
-    "EnchantmentAccessor"
+    "HumanoidArmorLayerMixin",
+    "LivingEntityMixin",
+    "PlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

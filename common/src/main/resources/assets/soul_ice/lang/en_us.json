@@ -176,6 +176,8 @@
   "block.soul_ice.black_plank_pressure_plate": "Black Plank Pressure Plate",
   "block.soul_ice.black_plank_button": "Black Plank Button",
 
+  "itemGroup.soul_ice.soul_ice": "Soul Ice",
+
   "enchantment.soul_ice.unfaltering": "Unfaltering",
   "enchantment.soul_ice.freezing": "Freezing",
 
@@ -187,15 +189,6 @@
   "item.soul_ice.rujone_berries": "Rujone Berries",
   "block.soul_ice.rujone_berry_bush": "Rujone Berry Bush",
   "block.soul_ice.orange_rose": "Orange Rose",
-
-  "itemGroup.soul_ice.mtjsi": "More than just Soul Ice",
-
-  "more_than_just_soul_ice.midnightconfig.slipperiness": "Slipperiness for Soul Ice",
-  "more_than_just_soul_ice.midnightconfig.enableUnfaltering": "Enable Unfaltering",
-  "more_than_just_soul_ice.midnightconfig.enableFreezing": "Enable Freezing",
-  "more_than_just_soul_ice.midnightconfig.enableLightstoneGeneration": "Enable Lightstone Generation",
-  "more_than_just_soul_ice.midnightconfig.enableRujoneBerryGeneration": "Enable Rujone Berry Generation",
-  "more_than_just_soul_ice.midnightconfig.enableOrangeRoseGeneration": "Enable Orange Rose Generation",
 
   "__comment__enchantdesc": "Enchantment Description Support",
   "enchantment.soul_ice.unfaltering.desc": "Allows for regular movement on ice",
