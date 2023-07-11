@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "size": 48,
+    "discard_chance_on_air_exposure": 0.05,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:deepslate"
+        },
+        "state": {
+          "Name": "soul_ice:lightstone"
+        }
+      }
+    ]
+  }
+}

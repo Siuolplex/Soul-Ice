@@ -185,6 +185,11 @@
   "item.soul_ice.cactus_chestplate": "Cactus Chestplate",
   "item.soul_ice.cactus_leggings": "Cactus Leggings",
   "item.soul_ice.cactus_boots": "Cactus Boots",
+  "item.soul_ice.hydrated_cactus_helmet": "Hydrated Cactus Helmet",
+  "item.soul_ice.hydrated_cactus_chestplate": "Hydrated Cactus Chestplate",
+  "item.soul_ice.hydrated_cactus_leggings": "Hydrated Cactus Leggings",
+  "item.soul_ice.hydrated_cactus_boots": "Hydrated Cactus Boots",
+  "item.soul_ice.gluten_ball": "Gluten Ball",
   "item.soul_ice.soul_ice_covered_leather_boots": "Soul Ice Covered Leather Boots",
   "item.soul_ice.rujone_berries": "Rujone Berries",
   "block.soul_ice.rujone_berry_bush": "Rujone Berry Bush",
@@ -192,6 +197,6 @@
 
   "__comment__enchantdesc": "Enchantment Description Support",
   "enchantment.soul_ice.unfaltering.desc": "Allows for regular movement on ice",
-  "enchantment.soul_ice.freezing.desc": "Slows down the attacked person (For now)"
-
+  "enchantment.soul_ice.freezing.desc": "Slows down the attacked person (For now)",
+  "death.soul_ice.attack.gluten_ball": "%1$s experienced a gluten reaction."
 }

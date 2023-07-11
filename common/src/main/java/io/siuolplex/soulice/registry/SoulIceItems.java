@@ -1,5 +1,6 @@
 package io.siuolplex.soulice.registry;
 
+import io.siuolplex.soulice.items.GlutenBallItem;
 import io.siuolplex.soulice.items.HydratedCactusArmorMaterial;
 import io.siuolplex.soulice.items.UnhydratedCactusArmorMaterial;
 import net.minecraft.core.Registry;
@@ -7,10 +8,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,11 +70,15 @@ public class SoulIceItems {
     public static final Item RUJONE_BERRIES = register("rujone_berries", new BlockItem(SoulIceBlocks.RUJONE_BERRY_BUSH, new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.8f).build())));
 
 
+    public static final Item GLUTEN_BALL = register("gluten_ball", new GlutenBallItem(new Item.Properties().stacksTo(16)));
+
+
     // RECALL ITEM
     //public static final Item FISH_SPAWNING_STAFF = register("amphibian_blessing", new Item(new Item.Properties())); // Joke item
-    //SCULK HELMET
-    //Cape item
+    // SCULK HELMET
+    // Cape item
     // Plains berries?
+    // Evoker Items
     
     private static Item register(String name, Item item) {
         Item registeredItem = Registry.register(BuiltInRegistries.ITEM, new ResourceLocation("soul_ice", name), item);
