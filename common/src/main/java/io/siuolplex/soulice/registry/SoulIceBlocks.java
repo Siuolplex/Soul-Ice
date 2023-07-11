@@ -11,7 +11,10 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
+
+
 public class SoulIceBlocks {
+
     public static final SoundType LIGHTSTONE_SOUNDS = new SoundType(1.0F, 1.5F, SoundEvents.POLISHED_DEEPSLATE_BREAK, SoundEvents.POLISHED_DEEPSLATE_STEP, SoundEvents.POLISHED_DEEPSLATE_PLACE, SoundEvents.POLISHED_DEEPSLATE_HIT, SoundEvents.POLISHED_DEEPSLATE_FALL);
 
     public static final Block SOUL_ICE = register("soul_ice", new Block(sharedSettings()));
@@ -57,7 +60,7 @@ public class SoulIceBlocks {
 
 
     public static BlockBehaviour.Properties sharedSettings() {
-        return BlockBehaviour.Properties.of().strength(3.0F).friction(0.995f).speedFactor(1.1f).sound(SoundType.GLASS);
+        return BlockBehaviour.Properties.of().strength(3.0F).friction(0.999f).sound(SoundType.GLASS);
     }
 
     public static BlockBehaviour.Properties sharedLightstoneSettings() {
