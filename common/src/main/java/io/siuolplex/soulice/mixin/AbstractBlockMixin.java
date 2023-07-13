@@ -27,7 +27,7 @@ import java.util.List;
 @Mixin(BlockBehaviour.class)
 public abstract class AbstractBlockMixin {
     @Inject(method = "getDrops", cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/storage/loot/LootTable;getRandomItems(Lnet/minecraft/world/level/storage/loot/LootParams;)Lit/unimi/dsi/fastutil/objects/ObjectArrayList;"))
-    private void addSelfIfNoLootTable(BlockState blockState, LootParams.Builder builder, CallbackInfoReturnable<List<ItemStack>> cir, ResourceLocation resourceLocation, LootParams lootParams, ServerLevel serverLevel, LootTable lootTable) {
+    private void soulIce$addSelfIfNoLootTable(BlockState blockState, LootParams.Builder builder, CallbackInfoReturnable<List<ItemStack>> cir, ResourceLocation resourceLocation, LootParams lootParams, ServerLevel serverLevel, LootTable lootTable) {
         if (lootTable.equals(LootTable.EMPTY) && resourceLocation.getNamespace().equals("soul_ice")) {
             if (blockState.getBlock() instanceof SlabBlock && blockState.getValue(SlabBlock.TYPE).equals(SlabType.DOUBLE)) {
                 cir.setReturnValue(List.of(new ItemStack(blockState.getBlock().asItem()), new ItemStack(blockState.getBlock().asItem())));

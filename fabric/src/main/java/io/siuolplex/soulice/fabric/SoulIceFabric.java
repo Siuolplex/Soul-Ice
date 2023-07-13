@@ -25,7 +25,7 @@ import static net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup.builder;
 public class SoulIceFabric implements ModInitializer {
     @Override
     public void onInitialize() {
-        SoulIce.init();
+        SoulIce.initWithRegistry();
         SoulIceItemGroup.init();
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation("soul_ice", "lightstone")));
         BiomeModifications.addFeature(BiomeSelectors.tag(BiomeTags.HAS_DESERT_PYRAMID), GenerationStep.Decoration.VEGETAL_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation("soul_ice", "rujone_berries")));

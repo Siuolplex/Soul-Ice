@@ -1,5 +1,6 @@
 package io.siuolplex.soulice.registry;
 
+import io.siuolplex.soulice.items.BakedGlutenBallItem;
 import io.siuolplex.soulice.items.GlutenBallItem;
 import io.siuolplex.soulice.items.HydratedCactusArmorMaterial;
 import io.siuolplex.soulice.items.UnhydratedCactusArmorMaterial;
@@ -71,6 +72,8 @@ public class SoulIceItems {
 
 
     public static final Item GLUTEN_BALL = register("gluten_ball", new GlutenBallItem(new Item.Properties().stacksTo(16)));
+    public static final Item BAKED_GLUTEN_BALL = register("baked_gluten_ball", new BakedGlutenBallItem(new Item.Properties().stacksTo(16)));
+
 
 
     // RECALL ITEM

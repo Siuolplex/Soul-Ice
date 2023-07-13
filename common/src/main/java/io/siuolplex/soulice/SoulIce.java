@@ -21,10 +21,14 @@ import org.slf4j.LoggerFactory;
 public class SoulIce {
     public static Logger LOGGER = LoggerFactory.getLogger("Soul Ice");
     public static void init() {
+
+    }
+
+    public static void initWithRegistry() {
         SoulIceBlocks.init();
         SoulIceItems.init();
         SoulIceEnchantments.init();
         SoulIceEntityTypes.init();
-        // STUFF
+        init();
     }
 }

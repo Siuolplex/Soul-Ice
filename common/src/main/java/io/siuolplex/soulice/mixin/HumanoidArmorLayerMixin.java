@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(HumanoidArmorLayer.class)
 public class HumanoidArmorLayerMixin {
     @Inject(at = @At("HEAD"), method = "getArmorLocation", cancellable = true)
-    private void soulIceFabric$getTexture(ArmorItem item, boolean legs, @Nullable String overlay, CallbackInfoReturnable<ResourceLocation> cir) {
+    private void soulIce$getTexture(ArmorItem item, boolean legs, @Nullable String overlay, CallbackInfoReturnable<ResourceLocation> cir) {
         if (BuiltInRegistries.ITEM.getKey(item).getNamespace().equals("soul_ice")) {
             String string = "textures/models/armor/" + item.getMaterial().getName() + "_layer_" + (legs ? 2 : 1) + (overlay == null ? "" : "_" + overlay) + ".png";
             cir.setReturnValue(new ResourceLocation("soul_ice", string));

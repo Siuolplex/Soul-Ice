@@ -35,7 +35,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     public abstract Inventory getInventory();
 
     @Inject(method = "hurt", at = @At("TAIL"))
-    public void soulIceFabric$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    public void soulIce$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if (!source.is(DamageTypes.MAGIC) && !source.is(DamageTypes.EXPLOSION) && !source.is(DamageTypes.MOB_PROJECTILE) && source.getEntity() instanceof LivingEntity attackyThing) {
             if (cactusArmorCheck()) {
                 attackyThing.hurt(this.damageSources().thorns(this), 1F); //todo: Make this a non-magical thorns
