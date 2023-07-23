@@ -1,5 +1,6 @@
 package io.siuolplex.soulice.registry;
 
+import io.siuolplex.soulice.blocks.IgnidiaIceBlock;
 import io.siuolplex.soulice.blocks.RujoneBerryBushBlock;
 import io.siuolplex.soulice.blocks.SoulIceStairBlock;
 import net.minecraft.core.Registry;
@@ -7,6 +8,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -54,6 +56,10 @@ public class SoulIceBlocks {
     public static final Block HARDENED_LIGHTSTONE_SLAB = register("hardened_lightstone_slab", new SlabBlock(sharedLightstoneSettings()));
     public static final Block HARDENED_LIGHTSTONE_STAIRS = register("hardened_lightstone_stairs", new SoulIceStairBlock(HARDENED_LIGHTSTONE.defaultBlockState(), sharedLightstoneSettings()));
     public static final Block HARDENED_LIGHTSTONE_WALL = register("hardened_lightstone_wall", new WallBlock(sharedLightstoneSettings()));
+
+    public static final Block MULVITE = register("mulvite", new Block(sharedLightstoneSettings()));
+    public static final Block IGNIDIA_ICE = register("ignidia_ice", new IgnidiaIceBlock(BlockBehaviour.Properties.of().strength(3.0F).friction(0.5f).sound(SoundType.GLASS).noOcclusion().isValidSpawn((blockStatex, blockGetter, blockPos, entityType) -> entityType == EntityType.CREEPER).isRedstoneConductor((blockState, blockGetter, blockPos) -> false)));
+
 
     public static final Block RUJONE_BERRY_BUSH = register("rujone_berry_bush", new RujoneBerryBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final Block ORANGE_ROSE = register("orange_rose", new FlowerBlock(MobEffects.FIRE_RESISTANCE, 120, BlockBehaviour.Properties.of().instabreak().dynamicShape().sound(SoundType.GRASS).noCollission()));

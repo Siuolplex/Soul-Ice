@@ -5,6 +5,10 @@ plugins {
 
 version = rootProject.version + "-fabric"
 
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+}
+
 architectury {
     platformSetupLoomIde()
     fabric()
@@ -59,6 +63,8 @@ remapJar {
 jar {
     archiveClassifier.set("dev")
 }
+
+
 
 /*sourcesJar {
     def commonSources = project(":common").sourcesJar

@@ -5,10 +5,12 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AbstractBlockMixin",
+    "BoatEntityMixin",
     "DamageSourceMixin",
     "HumanoidArmorLayerMixin",
     "LivingEntityMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "SurfaceSystemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

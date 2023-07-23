@@ -1,9 +1,6 @@
 package io.siuolplex.soulice;
 
-import io.siuolplex.soulice.registry.SoulIceBlocks;
-import io.siuolplex.soulice.registry.SoulIceEnchantments;
-import io.siuolplex.soulice.registry.SoulIceEntityTypes;
-import io.siuolplex.soulice.registry.SoulIceItems;
+import io.siuolplex.soulice.registry.*;
 import net.minecraft.world.level.block.SculkSensorBlock;
 import net.minecraft.world.level.block.entity.SculkSensorBlockEntity;
 import org.apache.logging.log4j.LogManager;
@@ -20,15 +17,24 @@ import org.slf4j.LoggerFactory;
  */
 public class SoulIce {
     public static Logger LOGGER = LoggerFactory.getLogger("Soul Ice");
+
+    /**
+     Used by Forge and (1.20) Neo directly, will eventually set up loader stuff.
+     */
     public static void init() {
 
     }
 
+    /**
+     For usage with Fabric, Quilt, and (1.21) Neo
+     Serves to register during initialization directly.
+     */
     public static void initWithRegistry() {
         SoulIceBlocks.init();
         SoulIceItems.init();
         SoulIceEnchantments.init();
         SoulIceEntityTypes.init();
+        SoulIceFeatures.init();
         init();
     }
 }

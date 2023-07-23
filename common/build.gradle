@@ -6,3 +6,7 @@ dependencies {
 }
 
 architectury { common("fabric", "fabric") }
+
+loom {
+    accessWidenerPath = file("src/main/resources/soul_ice.accesswidener")
+}

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "soul_ice:soul_ice_wall",
+    "soul_ice:polished_soul_ice_wall",
+    "soul_ice:soul_ice_brick_wall",
+    "soul_ice:lightstone_wall",
+    "soul_ice:polished_lightstone_wall",
+    "soul_ice:lightstone_brick_wall",
+    "soul_ice:hardened_lightstone_wall"
+  ]
+}

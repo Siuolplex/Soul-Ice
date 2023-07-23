@@ -7,5 +7,6 @@ public interface Loader {
     boolean isClient();
     String getLoader();
     Path getPath(String string);
+    boolean isModPresent(String mod);
 
 }

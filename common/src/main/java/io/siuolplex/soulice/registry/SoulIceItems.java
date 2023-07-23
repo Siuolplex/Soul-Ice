@@ -1,9 +1,7 @@
 package io.siuolplex.soulice.registry;
 
-import io.siuolplex.soulice.items.BakedGlutenBallItem;
-import io.siuolplex.soulice.items.GlutenBallItem;
-import io.siuolplex.soulice.items.HydratedCactusArmorMaterial;
-import io.siuolplex.soulice.items.UnhydratedCactusArmorMaterial;
+import io.siuolplex.soulice.SoulIce;
+import io.siuolplex.soulice.items.*;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -58,6 +56,11 @@ public class SoulIceItems {
     public static final Item HARDENED_LIGHTSTONE_STAIRS = register("hardened_lightstone_stairs", new BlockItem(SoulIceBlocks.HARDENED_LIGHTSTONE_STAIRS, new Item.Properties()));
     public static final Item HARDENED_LIGHTSTONE_WALL = register("hardened_lightstone_wall", new BlockItem(SoulIceBlocks.HARDENED_LIGHTSTONE_WALL, new Item.Properties()));
 
+    public static final Item MULVITE = register("mulvite", new BlockItem(SoulIceBlocks.MULVITE, new Item.Properties()));
+    public static final Item IGNIDIA_ICE = register("ignidia_ice", new BlockItem(SoulIceBlocks.IGNIDIA_ICE, new Item.Properties()));
+//a
+
+
     public static final Item CACTUS_HELMET = register("cactus_helmet", new ArmorItem(UnhydratedCactusArmorMaterial, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final Item CACTUS_CHESTPLATE = register("cactus_chestplate", new ArmorItem(UnhydratedCactusArmorMaterial, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final Item CACTUS_LEGGINGS = register("cactus_leggings", new ArmorItem(UnhydratedCactusArmorMaterial, ArmorItem.Type.LEGGINGS, new Item.Properties()));
@@ -73,6 +76,9 @@ public class SoulIceItems {
 
     public static final Item GLUTEN_BALL = register("gluten_ball", new GlutenBallItem(new Item.Properties().stacksTo(16)));
     public static final Item BAKED_GLUTEN_BALL = register("baked_gluten_ball", new BakedGlutenBallItem(new Item.Properties().stacksTo(16)));
+
+    public static final Item EVOKATION_STAFF = register("evokation_staff", new EvokationStaffItem(new Item.Properties().stacksTo(1)));
+
 
 
 
@@ -90,5 +96,6 @@ public class SoulIceItems {
         return registeredItem;
     }
 
-    public static void init() {};
+    public static void init() {
+    };
 }

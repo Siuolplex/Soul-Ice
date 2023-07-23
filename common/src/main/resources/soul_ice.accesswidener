@@ -1,0 +1,9 @@
+accessWidener	v1	named
+accessible method net/minecraft/world/level/levelgen/feature/IcebergFeature signedDistanceEllipse (IILnet/minecraft/core/BlockPos;IID)D
+accessible method net/minecraft/world/level/levelgen/feature/IcebergFeature removeFloatingSnowLayer (Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;)V
+accessible method net/minecraft/world/level/levelgen/feature/IcebergFeature belowIsAir (Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z
+extendable method net/minecraft/world/level/levelgen/feature/IcebergFeature carve (IILnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/LevelAccessor;ZDLnet/minecraft/core/BlockPos;II)V
+extendable class net/minecraft/world/level/levelgen/SurfaceRules$Context
+extendable class net/minecraft/world/level/levelgen/SurfaceRules$Context
+accessible class net/minecraft/world/level/levelgen/SurfaceRules$SequenceRuleSource
+extendable class net/minecraft/world/level/levelgen/SurfaceRules$SequenceRuleSource
