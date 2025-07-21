@@ -25,6 +25,6 @@ public class SoulIceItemGroup {
             }).build();
 
     public static void init() {
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation("soul_ice", "soul_ice"), SOUL_ICE);
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath("soul_ice", "soul_ice"), SOUL_ICE);
     }
 }

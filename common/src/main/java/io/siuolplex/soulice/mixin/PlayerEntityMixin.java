@@ -57,35 +57,35 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         Inventory a = this.getInventory();
         CompoundTag item = new CompoundTag();
         if (a.getArmor(0).is(CACTUS_BOOTS)) {
-            item = a.getArmor(0).save(item);
+            item = (CompoundTag) a.getArmor(0).save(level().registryAccess(), item);
             item.putString("id", "soul_ice:hydrated_cactus_boots");
             CompoundTag tag = item.getCompound("tag");
             tag.putInt("Damage", (tag.getInt("Damage")) * 4);
-            a.setItem(36, ItemStack.of(item));
+            a.setItem(36, ItemStack.parse(level().registryAccess(), item).get());
             a.setChanged();
         }
         if (a.getArmor(1).is(CACTUS_LEGGINGS)) {
-            item = a.getArmor(1).save(item);
+            item = (CompoundTag) a.getArmor(1).save(level().registryAccess(), item);
             item.putString("id", "soul_ice:hydrated_cactus_leggings");
             CompoundTag tag = item.getCompound("tag");
             tag.putInt("Damage", (tag.getInt("Damage")) * 4);
-            a.setItem(37, ItemStack.of(item));
+            a.setItem(37, ItemStack.parse(level().registryAccess(), item).get());
             a.setChanged();
         }
         if (a.getArmor(2).is(CACTUS_CHESTPLATE)) {
-            item = a.getArmor(2).save(item);
+            item = (CompoundTag) a.getArmor(2).save(level().registryAccess(), item);
             item.putString("id", "soul_ice:hydrated_cactus_chestplate");
             CompoundTag tag = item.getCompound("tag");
             tag.putInt("Damage", (tag.getInt("Damage")) * 4);
-            a.setItem(38, ItemStack.of(item));
+            a.setItem(38, ItemStack.parse(level().registryAccess(), item).get());
             a.setChanged();
         }
         if (a.getArmor(3).is(CACTUS_HELMET)) {
-            item = a.getArmor(3).save(item);
+            item = (CompoundTag) a.getArmor(3).save(level().registryAccess(), item);
             item.putString("id", "soul_ice:hydrated_cactus_helmet");
             CompoundTag tag = item.getCompound("tag");
             tag.putInt("Damage", (tag.getInt("Damage")) * 4);
-            a.setItem(39, ItemStack.of(item));
+            a.setItem(39, ItemStack.parse(level().registryAccess(), item).get());
             a.setChanged();
         }
     }
@@ -94,35 +94,35 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         Inventory a = this.getInventory();
         CompoundTag item = new CompoundTag();
         if (a.getArmor(0).is(HYDRATED_CACTUS_BOOTS)) {
-            item = a.getArmor(0).save(item);
+            item = (CompoundTag) a.getArmor(0).save(level().registryAccess(), item);
             item.putString("id", "soul_ice:cactus_boots");
             CompoundTag tag = item.getCompound("tag");
             tag.putInt("Damage", (tag.getInt("Damage")) / 4);
-            a.setItem(36, ItemStack.of(item));
+            a.setItem(36, ItemStack.parse(level().registryAccess(), item).get());
             a.setChanged();
         }
         if (a.getArmor(1).is(HYDRATED_CACTUS_LEGGINGS)) {
-            item = a.getArmor(1).save(item);
+            item = (CompoundTag) a.getArmor(1).save(level().registryAccess(), item);
             item.putString("id", "soul_ice:cactus_leggings");
             CompoundTag tag = item.getCompound("tag");
             tag.putInt("Damage", (tag.getInt("Damage")) / 4);
-            a.setItem(37, ItemStack.of(item));
+            a.setItem(37, ItemStack.parse(level().registryAccess(), item).get());
             a.setChanged();
         }
         if (a.getArmor(2).is(HYDRATED_CACTUS_CHESTPLATE)) {
-            item = a.getArmor(2).save(item);
+            item = (CompoundTag) a.getArmor(2).save(level().registryAccess(), item);
             item.putString("id", "soul_ice:cactus_chestplate");
             CompoundTag tag = item.getCompound("tag");
             tag.putInt("Damage", (tag.getInt("Damage")) / 4);
-            a.setItem(38, ItemStack.of(item));
+            a.setItem(38, ItemStack.parse(level().registryAccess(), item).get());
             a.setChanged();
         }
         if (a.getArmor(3).is(HYDRATED_CACTUS_HELMET)) {
-            item = a.getArmor(3).save(item);
+            item = (CompoundTag) a.getArmor(3).save(level().registryAccess(), item);
             item.putString("id", "soul_ice:cactus_helmet");
             CompoundTag tag = item.getCompound("tag");
             tag.putInt("Damage", (tag.getInt("Damage")) / 4);
-            a.setItem(39, ItemStack.of(item));
+            a.setItem(39, ItemStack.parse(level().registryAccess(), item).get());
             a.setChanged();
         }
     }

@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 public class SoulIceFeatures {
-    public static Feature<NoneFeatureConfiguration> SOUL_ICESHEET = register(new ResourceLocation("soul_ice", "soul_icesheet"), new SoulIceFreezeTopFeature(NoneFeatureConfiguration.CODEC));
+    public static Feature<NoneFeatureConfiguration> SOUL_ICESHEET = register(ResourceLocation.fromNamespaceAndPath("soul_ice", "soul_icesheet"), new SoulIceFreezeTopFeature(NoneFeatureConfiguration.CODEC));
 
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(ResourceLocation identifier, F feature) {

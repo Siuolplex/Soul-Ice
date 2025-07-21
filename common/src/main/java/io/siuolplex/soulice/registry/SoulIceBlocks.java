@@ -23,19 +23,19 @@ public class SoulIceBlocks {
     public static final Block SOUL_ICE_SLAB = register("soul_ice_slab", new SlabBlock(sharedSettings()));
     public static final Block SOUL_ICE_STAIRS = register("soul_ice_stairs", new SoulIceStairBlock(SOUL_ICE.defaultBlockState(), sharedSettings()));
     public static final Block SOUL_ICE_WALL = register("soul_ice_wall", new WallBlock(sharedSettings()));
-    public static final Block SOUL_ICE_GATE = register("soul_ice_gate", new FenceGateBlock(sharedSettings(), WoodType.OAK));
+    public static final Block SOUL_ICE_GATE = register("soul_ice_gate", new FenceGateBlock(WoodType.OAK, sharedSettings()));
 
     public static final Block POLISHED_SOUL_ICE = register("polished_soul_ice", new Block(sharedSettings()));
     public static final Block POLISHED_SOUL_ICE_SLAB = register("polished_soul_ice_slab", new SlabBlock(sharedSettings()));
     public static final Block POLISHED_SOUL_ICE_STAIRS = register("polished_soul_ice_stairs", new SoulIceStairBlock(POLISHED_SOUL_ICE.defaultBlockState(), sharedSettings()));
     public static final Block POLISHED_SOUL_ICE_WALL = register("polished_soul_ice_wall", new WallBlock(sharedSettings()));
-    public static final Block POLISHED_SOUL_ICE_GATE = register("polished_soul_ice_gate", new FenceGateBlock(sharedSettings(), WoodType.OAK));
+    public static final Block POLISHED_SOUL_ICE_GATE = register("polished_soul_ice_gate", new FenceGateBlock(WoodType.OAK, sharedSettings()));
 
     public static final Block SOUL_ICE_BRICKS = register("soul_ice_bricks", new Block(sharedSettings()));
     public static final Block SOUL_ICE_BRICK_SLAB = register("soul_ice_brick_slab", new SlabBlock(sharedSettings()));
     public static final Block SOUL_ICE_BRICK_STAIRS = register("soul_ice_brick_stairs", new SoulIceStairBlock(SOUL_ICE_BRICKS.defaultBlockState(), sharedSettings()));
     public static final Block SOUL_ICE_BRICK_WALL = register("soul_ice_brick_wall", new WallBlock(sharedSettings()));
-    public static final Block SOUL_ICE_BRICK_GATE = register("soul_ice_brick_gate", new FenceGateBlock(sharedSettings(), WoodType.OAK));
+    public static final Block SOUL_ICE_BRICK_GATE = register("soul_ice_brick_gate", new FenceGateBlock(WoodType.OAK, sharedSettings()));
 
     public static final Block LIGHTSTONE = register("lightstone", new Block(sharedLightstoneSettings()));
     public static final Block LIGHTSTONE_SLAB = register("lightstone_slab", new SlabBlock(sharedLightstoneSettings()));
@@ -61,7 +61,7 @@ public class SoulIceBlocks {
     public static final Block IGNIDIA_ICE = register("ignidia_ice", new IgnidiaIceBlock(BlockBehaviour.Properties.of().strength(3.0F).friction(0.5f).sound(SoundType.GLASS).noOcclusion().isValidSpawn((blockStatex, blockGetter, blockPos, entityType) -> entityType == EntityType.CREEPER).isRedstoneConductor((blockState, blockGetter, blockPos) -> false)));
 
 
-    public static final Block RUJONE_BERRY_BUSH = register("rujone_berry_bush", new RujoneBerryBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
+    public static final Block RUJONE_BERRY_BUSH = register("rujone_berry_bush", new RujoneBerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
     public static final Block ORANGE_ROSE = register("orange_rose", new FlowerBlock(MobEffects.FIRE_RESISTANCE, 120, BlockBehaviour.Properties.of().instabreak().dynamicShape().sound(SoundType.GRASS).noCollission()));
 
 
@@ -74,7 +74,7 @@ public class SoulIceBlocks {
     }
 
     private static Block register(String name, Block block) {
-        return Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation("soul_ice", name), block);
+        return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath("soul_ice", name), block);
     }
 
     public static void init() {}

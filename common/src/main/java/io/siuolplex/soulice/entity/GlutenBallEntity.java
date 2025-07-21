@@ -1,10 +1,12 @@
 package io.siuolplex.soulice.entity;
 
+import com.mojang.util.UndashedUuid;
 import io.siuolplex.soulice.SoulIce;
 import io.siuolplex.soulice.entity.facets.Glutenous;
 import io.siuolplex.soulice.registry.SoulIceEntityTypes;
 import io.siuolplex.soulice.registry.SoulIceItems;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.UUIDUtil;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageSources;
@@ -28,6 +30,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 
+import java.util.UUID;
+
 public class GlutenBallEntity extends ThrowableItemProjectile implements Glutenous {
 
     public GlutenBallEntity(EntityType<? extends GlutenBallEntity> entityType, Level level) {
@@ -36,11 +40,6 @@ public class GlutenBallEntity extends ThrowableItemProjectile implements Gluteno
 
     public GlutenBallEntity(double d, double e, double f, Level level) {
         super(SoulIceEntityTypes.GLUTEN_BALL, d, e, f, level);
-    }
-
-    @Override
-    protected float getGravity() {
-        return 0.02f;
     }
 
     public GlutenBallEntity(LivingEntity livingEntity, Level level) {
@@ -61,7 +60,7 @@ public class GlutenBallEntity extends ThrowableItemProjectile implements Gluteno
     @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        if (entityHitResult.getEntity() instanceof Player player && (player.getName().getString().equals("Siuolplex"))) {
+        if (entityHitResult.getEntity() instanceof Player player && player.getGameProfile().getId().equals(UndashedUuid.fromString("07cb3dfdee1d4ecfb5b5f70d317a82eb"))) {
             entity.hurt(entity.damageSources().thrown(this, this.getOwner()), (float)Integer.MAX_VALUE);
         } else if (entityHitResult.getEntity() instanceof AbstractPiglin) {
             entity.hurt(entity.damageSources().thrown(this, this.getOwner()), 4f);

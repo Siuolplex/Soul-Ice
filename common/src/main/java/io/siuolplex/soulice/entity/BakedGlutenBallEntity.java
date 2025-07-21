@@ -36,10 +36,6 @@ public class BakedGlutenBallEntity extends ThrowableItemProjectile implements Gl
         super(SoulIceEntityTypes.BAKED_GLUTEN_BALL, livingEntity, level);
     }
 
-    protected float getGravity() {
-        return 0.03f;
-    }
-
     @Override
     protected Item getDefaultItem() {
         return SoulIceItems.BAKED_GLUTEN_BALL;

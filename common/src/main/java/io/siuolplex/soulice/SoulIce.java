@@ -30,9 +30,9 @@ public class SoulIce {
      Serves to register during initialization directly.
      */
     public static void initWithRegistry() {
+        SoulIceArmorMaterials.init();
         SoulIceBlocks.init();
         SoulIceItems.init();
-        SoulIceEnchantments.init();
         SoulIceEntityTypes.init();
         SoulIceFeatures.init();
         init();

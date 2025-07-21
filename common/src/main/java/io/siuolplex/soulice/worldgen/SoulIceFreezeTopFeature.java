@@ -39,7 +39,7 @@ public class SoulIceFreezeTopFeature extends SnowAndFreezeFeature {
                 mutableBlockPos2.set(mutableBlockPos).move(Direction.DOWN, 1);
                 mutableBlockPos3.set(mutableBlockPos).move(Direction.UP, 1);
 
-                if (worldGenLevel.getBlockState(mutableBlockPos).is(Blocks.AIR) && worldGenLevel.getBiome(mutableBlockPos).is(ResourceKey.create(Registries.BIOME, new ResourceLocation("soul_ice", "soul_husk")))) {
+                if (worldGenLevel.getBlockState(mutableBlockPos).is(Blocks.AIR) && worldGenLevel.getBiome(mutableBlockPos).is(ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("soul_ice", "soul_husk")))) {
                     worldGenLevel.setBlock(mutableBlockPos2, SoulIceBlocks.IGNIDIA_ICE.defaultBlockState(), 2);
                 }
 

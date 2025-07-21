@@ -1,11 +1,9 @@
 package io.siuolplex.soulice.registry;
 
-import io.siuolplex.soulice.SoulIce;
 import io.siuolplex.soulice.items.*;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 
@@ -14,10 +12,7 @@ import java.util.List;
 
 public class SoulIceItems {
     public static List<Item> SOUL_ICE_ITEM_GROUP = new ArrayList<>();
-    public static final ArmorMaterial UnhydratedCactusArmorMaterial = new UnhydratedCactusArmorMaterial();
-    public static final ArmorMaterial HydratedCactusArmorMaterial = new HydratedCactusArmorMaterial();
-
-
+    
     public static final Item SOUL_ICE = register("soul_ice", new BlockItem(SoulIceBlocks.SOUL_ICE, new Item.Properties()));
     public static final Item SOUL_ICE_SLAB = register("soul_ice_slab", new BlockItem(SoulIceBlocks.SOUL_ICE_SLAB, new Item.Properties()));
     public static final Item SOUL_ICE_STAIRS = register("soul_ice_stairs", new BlockItem(SoulIceBlocks.SOUL_ICE_STAIRS, new Item.Properties()));
@@ -61,17 +56,17 @@ public class SoulIceItems {
 //a
 
 
-    public static final Item CACTUS_HELMET = register("cactus_helmet", new ArmorItem(UnhydratedCactusArmorMaterial, ArmorItem.Type.HELMET, new Item.Properties()));
-    public static final Item CACTUS_CHESTPLATE = register("cactus_chestplate", new ArmorItem(UnhydratedCactusArmorMaterial, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
-    public static final Item CACTUS_LEGGINGS = register("cactus_leggings", new ArmorItem(UnhydratedCactusArmorMaterial, ArmorItem.Type.LEGGINGS, new Item.Properties()));
-    public static final Item CACTUS_BOOTS = register("cactus_boots", new ArmorItem(UnhydratedCactusArmorMaterial, ArmorItem.Type.BOOTS, new Item.Properties()));
-    public static final Item HYDRATED_CACTUS_HELMET = register("hydrated_cactus_helmet", new ArmorItem(HydratedCactusArmorMaterial, ArmorItem.Type.HELMET, new Item.Properties()));
-    public static final Item HYDRATED_CACTUS_CHESTPLATE = register("hydrated_cactus_chestplate", new ArmorItem(HydratedCactusArmorMaterial, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
-    public static final Item HYDRATED_CACTUS_LEGGINGS = register("hydrated_cactus_leggings", new ArmorItem(HydratedCactusArmorMaterial, ArmorItem.Type.LEGGINGS, new Item.Properties()));
-    public static final Item HYDRATED_CACTUS_BOOTS = register("hydrated_cactus_boots", new ArmorItem(HydratedCactusArmorMaterial, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final Item CACTUS_HELMET = register("cactus_helmet", new ArmorItem(SoulIceArmorMaterials.UNHYDRATED_CACTUS_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Properties().durability(11*4)));
+    public static final Item CACTUS_CHESTPLATE = register("cactus_chestplate", new ArmorItem(SoulIceArmorMaterials.UNHYDRATED_CACTUS_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(16*4)));
+    public static final Item CACTUS_LEGGINGS = register("cactus_leggings", new ArmorItem(SoulIceArmorMaterials.UNHYDRATED_CACTUS_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(15*4)));
+    public static final Item CACTUS_BOOTS = register("cactus_boots", new ArmorItem(SoulIceArmorMaterials.UNHYDRATED_CACTUS_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties().durability(13*4)));
+    public static final Item HYDRATED_CACTUS_HELMET = register("hydrated_cactus_helmet", new ArmorItem(SoulIceArmorMaterials.HYDRATED_CACTUS_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Properties().durability(11*16)));
+    public static final Item HYDRATED_CACTUS_CHESTPLATE = register("hydrated_cactus_chestplate", new ArmorItem(SoulIceArmorMaterials.HYDRATED_CACTUS_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(16*16)));
+    public static final Item HYDRATED_CACTUS_LEGGINGS = register("hydrated_cactus_leggings", new ArmorItem(SoulIceArmorMaterials.HYDRATED_CACTUS_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(15*16)));
+    public static final Item HYDRATED_CACTUS_BOOTS = register("hydrated_cactus_boots", new ArmorItem(SoulIceArmorMaterials.HYDRATED_CACTUS_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties().durability(13*16)));
 
     public static final Item ORANGE_ROSE = register("orange_rose", new BlockItem(SoulIceBlocks.ORANGE_ROSE, new Item.Properties()));
-    public static final Item RUJONE_BERRIES = register("rujone_berries", new BlockItem(SoulIceBlocks.RUJONE_BERRY_BUSH, new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.8f).build())));
+    public static final Item RUJONE_BERRIES = register("rujone_berries", new BlockItem(SoulIceBlocks.RUJONE_BERRY_BUSH, new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.8f).build())));
 
 
     public static final Item GLUTEN_BALL = register("gluten_ball", new GlutenBallItem(new Item.Properties().stacksTo(16)));
@@ -90,7 +85,7 @@ public class SoulIceItems {
     // Evoker Items
     
     private static Item register(String name, Item item) {
-        Item registeredItem = Registry.register(BuiltInRegistries.ITEM, new ResourceLocation("soul_ice", name), item);
+        Item registeredItem = Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath("soul_ice", name), item);
         SOUL_ICE_ITEM_GROUP.add(registeredItem);
 
         return registeredItem;
