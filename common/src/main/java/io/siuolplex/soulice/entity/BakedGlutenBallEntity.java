@@ -1,6 +1,6 @@
 package io.siuolplex.soulice.entity;
 
-import com.mojang.blaze3d.shaders.Effect;
+import com.mojang.util.UndashedUuid;
 import io.siuolplex.soulice.entity.facets.Glutenous;
 import io.siuolplex.soulice.registry.SoulIceEntityTypes;
 import io.siuolplex.soulice.registry.SoulIceItems;
@@ -11,14 +11,12 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
-import net.minecraft.world.entity.monster.piglin.Piglin;
-import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -50,7 +48,7 @@ public class BakedGlutenBallEntity extends ThrowableItemProjectile implements Gl
     @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        if (entityHitResult.getEntity() instanceof Player player && (player.getName().getString().equals("Siuolplex"))) {
+        if (entityHitResult.getEntity() instanceof Player player && player.getGameProfile().getId().equals(UndashedUuid.fromString("07cb3dfdee1d4ecfb5b5f70d317a82eb"))) {
             entity.hurt(entity.damageSources().thrown(this, this.getOwner()), (float)Integer.MAX_VALUE);
         } else if (entityHitResult.getEntity() instanceof AbstractPiglin) {
             entity.hurt(entity.damageSources().thrown(this, this.getOwner()), 4f);
@@ -59,8 +57,10 @@ public class BakedGlutenBallEntity extends ThrowableItemProjectile implements Gl
         } else {
             if (entity instanceof Player player && player.getFoodData().getFoodLevel() < 20) {
                 player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 5));
+            } else if (entity instanceof Villager villager) {
+                villager.getInventory().addItem(Items.BREAD.getDefaultInstance());
             }
-            entity.hurt(entity.damageSources().thrown(this, this.getOwner()), 0f);
+            entity.hurt(entity.damageSources().thrown(this, null), 0f);
         }
         super.onHitEntity(entityHitResult);
     }

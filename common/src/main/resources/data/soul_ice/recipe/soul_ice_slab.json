@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "soul_ice:soul_ice"
+    }
+  },
+  "result": {
+    "id": "soul_ice:soul_ice_slab",
+    "count": 6
+  }
+}

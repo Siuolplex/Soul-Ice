@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WRW",
+    "WWW"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:blue_ice"
+    },
+    "W": {
+      "item": "minecraft:soul_sand"
+    }
+  },
+  "result": {
+    "id": "soul_ice:soul_ice",
+    "count": 1
+  }
+}

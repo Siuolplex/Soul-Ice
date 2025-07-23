@@ -21,6 +21,7 @@ public class GlutenBallItem extends SnowballItem {
 
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack itemStack = player.getItemInHand(interactionHand);
+        player.getCooldowns().addCooldown(this, 15);
         level.playSound(
                 null,
                 player.getX(),

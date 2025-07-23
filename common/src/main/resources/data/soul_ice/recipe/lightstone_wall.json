@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "soul_ice:lightstone"
+    }
+  },
+  "result": {
+    "id": "soul_ice:lightstone_wall",
+    "count": 6
+  }
+}

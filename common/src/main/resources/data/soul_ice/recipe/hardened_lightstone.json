@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "soul_ice:lightstone"
+  },
+  "result":  {
+    "id": "soul_ice:hardened_lightstone",
+    "count": 1
+  },
+  "experience": 1.0,
+  "cookingtime": 200
+}

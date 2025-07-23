@@ -8,11 +8,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SnowyDirtBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.SnowAndFreezeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -26,30 +22,42 @@ public class SoulIceFreezeTopFeature extends SnowAndFreezeFeature {
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
         WorldGenLevel worldGenLevel = featurePlaceContext.level();
         BlockPos blockPos = featurePlaceContext.origin();
-        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
-        BlockPos.MutableBlockPos mutableBlockPos2 = new BlockPos.MutableBlockPos();
-        BlockPos.MutableBlockPos mutableBlockPos3 = new BlockPos.MutableBlockPos();
+        BlockPos.MutableBlockPos surfacePos = new BlockPos.MutableBlockPos();
+        BlockPos.MutableBlockPos underPos = new BlockPos.MutableBlockPos();
+        BlockPos.MutableBlockPos abovePos = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < 16; ++i) {
-            for(int j = 0; j < 16; ++j) {
-                int k = blockPos.getX() + i;
-                int l = blockPos.getZ() + j;
+        for(int xSeq = 0; xSeq < 16; ++xSeq) {
+            for(int zSeq = 0; zSeq < 16; ++zSeq) {
+                int xPos = blockPos.getX() + xSeq;
+                int zPos = blockPos.getZ() + zSeq;
 
-                mutableBlockPos.set(k, featurePlaceContext.chunkGenerator().getSeaLevel(), l);
-                mutableBlockPos2.set(mutableBlockPos).move(Direction.DOWN, 1);
-                mutableBlockPos3.set(mutableBlockPos).move(Direction.UP, 1);
+                surfacePos.set(xPos, featurePlaceContext.chunkGenerator().getSeaLevel(), zPos);
+                underPos.set(surfacePos).move(Direction.DOWN, 1);
+                abovePos.set(underPos);
 
-                if (worldGenLevel.getBlockState(mutableBlockPos).is(Blocks.AIR) && worldGenLevel.getBiome(mutableBlockPos).is(ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("soul_ice", "soul_husk")))) {
-                    worldGenLevel.setBlock(mutableBlockPos2, SoulIceBlocks.IGNIDIA_ICE.defaultBlockState(), 2);
-                }
 
-                /*if (biome.shouldSnow(worldGenLevel, mutableBlockPos)) {
-                    worldGenLevel.setBlock(mutableBlockPos, Blocks.SNOW.defaultBlockState(), 2);
-                    BlockState blockState = worldGenLevel.getBlockState(mutableBlockPos2);
-                    if (blockState.hasProperty(SnowyDirtBlock.SNOWY)) {
-                        worldGenLevel.setBlock(mutableBlockPos2, blockState.setValue(SnowyDirtBlock.SNOWY, true), 2);
+                if (worldGenLevel.getBlockState(underPos).is(Blocks.LAVA) &&
+                        worldGenLevel.getBiome(surfacePos).is(ResourceKey.create(Registries.BIOME,
+                                ResourceLocation.fromNamespaceAndPath("soul_ice", "soul_husk")))) {
+                    worldGenLevel.setBlock(underPos, SoulIceBlocks.IGNIDIA_ICE.defaultBlockState(), 2);
+                    boolean makeMoreFloor = featurePlaceContext.random().nextInt(0, 256) > 64;
+                    while (true) {
+                        underPos = underPos.move(Direction.DOWN);
+                        makeMoreFloor = worldGenLevel.getBlockState(underPos).is(Blocks.LAVA) &&
+                                worldGenLevel.getBiome(underPos).is(ResourceKey.create(Registries.BIOME,
+                                        ResourceLocation.fromNamespaceAndPath("soul_ice", "soul_husk")));
+                        if (!makeMoreFloor) break;
+                        worldGenLevel.setBlock(underPos, SoulIceBlocks.IGNIDIA_ICE.defaultBlockState(), 2);
                     }
-                }*/
+                    makeMoreFloor = featurePlaceContext.random().nextInt(0, 256) > 192;
+                    while (makeMoreFloor) {
+                        abovePos = abovePos.move(Direction.UP);
+                        makeMoreFloor = featurePlaceContext.random().nextInt(0, 256) > 192 && worldGenLevel.getBlockState(abovePos).is(Blocks.AIR) &&
+                                worldGenLevel.getBiome(abovePos).is(ResourceKey.create(Registries.BIOME,
+                                        ResourceLocation.fromNamespaceAndPath("soul_ice", "soul_husk")));
+                        worldGenLevel.setBlock(abovePos, SoulIceBlocks.IGNIDIA_ICE.defaultBlockState(), 2);
+                    }
+                }
             }
         }
 

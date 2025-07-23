@@ -30,7 +30,7 @@ public class SoulIceArmorMaterials {
                     layers -> layers.add(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("soul_ice", "cactus")))));
 
     public static final Holder<ArmorMaterial> HYDRATED_CACTUS_ARMOR_MATERIAL = register(
-            "unhydrated_cactus",
+            "hydrated_cactus",
             Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
                 map.put(ArmorItem.Type.BOOTS, 2);
                 map.put(ArmorItem.Type.LEGGINGS, 4);

@@ -4,7 +4,6 @@
   "package": "io.siuolplex.soulice.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AbstractBlockMixin",
     "BoatEntityMixin",
     "DamageSourceMixin",
     "LivingEntityMixin",

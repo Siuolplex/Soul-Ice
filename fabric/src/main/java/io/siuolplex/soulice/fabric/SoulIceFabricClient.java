@@ -15,7 +15,7 @@ public class SoulIceFabricClient implements ClientModInitializer {
         EntityRendererRegistry.register(SoulIceEntityTypes.BAKED_GLUTEN_BALL, ThrownItemRenderer::new);
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(), SoulIceBlocks.ORANGE_ROSE);
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(), SoulIceBlocks.RUJONE_BERRY_BUSH);
-        BlockRenderLayerMap.INSTANCE.putBlock(SoulIceBlocks.IGNIDIA_ICE, RenderType.translucent());
+        //BlockRenderLayerMap.INSTANCE.putBlock(SoulIceBlocks.IGNIDIA_ICE, RenderType.translucent());
 
 
 

@@ -11,6 +11,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -30,6 +32,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 
+import java.util.Random;
 import java.util.UUID;
 
 public class GlutenBallEntity extends ThrowableItemProjectile implements Glutenous {
@@ -60,13 +63,18 @@ public class GlutenBallEntity extends ThrowableItemProjectile implements Gluteno
     @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        if (entityHitResult.getEntity() instanceof Player player && player.getGameProfile().getId().equals(UndashedUuid.fromString("07cb3dfdee1d4ecfb5b5f70d317a82eb"))) {
+        if (entity instanceof Player player && player.getGameProfile().getId().equals(UndashedUuid.fromString("07cb3dfdee1d4ecfb5b5f70d317a82eb"))) {
             entity.hurt(entity.damageSources().thrown(this, this.getOwner()), (float)Integer.MAX_VALUE);
-        } else if (entityHitResult.getEntity() instanceof AbstractPiglin) {
+        } else if (entity instanceof AbstractPiglin) {
             entity.hurt(entity.damageSources().thrown(this, this.getOwner()), 4f);
-        } else if (entityHitResult.getEntity() instanceof Warden || entityHitResult.getEntity() instanceof Shulker) {
+        } else if (entity instanceof Warden || entity instanceof Shulker) {
             entity.hurt(entity.damageSources().thrown(this, this.getOwner()), 2f); //Making this a tag is funnier
         } else {
+            if (entity instanceof LivingEntity livingEntity && new Random().nextDouble(0, 1) > 0.75) {
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 100));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200));
+            }
             entity.hurt(entity.damageSources().thrown(this, this.getOwner()), 0f);
         }
         super.onHitEntity(entityHitResult);

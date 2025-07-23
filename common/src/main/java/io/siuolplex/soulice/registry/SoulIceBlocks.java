@@ -13,9 +13,12 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class SoulIceBlocks {
+    public static List<Block> THELISTSOFBLOCKS = new ArrayList<>();
 
     public static final SoundType LIGHTSTONE_SOUNDS = new SoundType(1.0F, 1.5F, SoundEvents.POLISHED_DEEPSLATE_BREAK, SoundEvents.POLISHED_DEEPSLATE_STEP, SoundEvents.POLISHED_DEEPSLATE_PLACE, SoundEvents.POLISHED_DEEPSLATE_HIT, SoundEvents.POLISHED_DEEPSLATE_FALL);
 
@@ -58,7 +61,7 @@ public class SoulIceBlocks {
     public static final Block HARDENED_LIGHTSTONE_WALL = register("hardened_lightstone_wall", new WallBlock(sharedLightstoneSettings()));
 
     public static final Block MULVITE = register("mulvite", new Block(sharedLightstoneSettings()));
-    public static final Block IGNIDIA_ICE = register("ignidia_ice", new IgnidiaIceBlock(BlockBehaviour.Properties.of().strength(3.0F).friction(0.5f).sound(SoundType.GLASS).noOcclusion().isValidSpawn((blockStatex, blockGetter, blockPos, entityType) -> entityType == EntityType.CREEPER).isRedstoneConductor((blockState, blockGetter, blockPos) -> false)));
+    public static final Block IGNIDIA_ICE = register("ignidia_ice", new IgnidiaIceBlock(BlockBehaviour.Properties.of().strength(3.0F).friction(0.75f).sound(SoundType.GLASS).noOcclusion().isValidSpawn((blockStatex, blockGetter, blockPos, entityType) -> entityType == EntityType.CREEPER).isRedstoneConductor((blockState, blockGetter, blockPos) -> false)));
 
 
     public static final Block RUJONE_BERRY_BUSH = register("rujone_berry_bush", new RujoneBerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));

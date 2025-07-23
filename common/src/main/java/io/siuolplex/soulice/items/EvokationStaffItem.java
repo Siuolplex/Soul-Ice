@@ -3,23 +3,24 @@ package io.siuolplex.soulice.items;
 import io.siuolplex.soulice.SoulIce;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.monster.Evoker;
+import net.minecraft.world.entity.monster.Vex;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.EvokerFangs;
-import net.minecraft.world.entity.projectile.ThrownEnderpearl;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -33,29 +34,55 @@ public class EvokationStaffItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack playerItemInHand = player.getItemInHand(interactionHand);
-        player.getCooldowns().addCooldown(this, 30);
 
         if (!level.isClientSide) {
-            Vec3 targetPos = getTargetedBlockPos(level, player);
-            double d = Math.min(targetPos.y(), player.getY());
-            double e = Math.max(targetPos.y(), player.getY()) + 1.0;
-            float f = (float) Mth.atan2(targetPos.z() - player.getZ(), targetPos.x() - player.getX());
+            if (!player.isCrouching() || !SoulIce.IS_TEST_BUILD) {
+                player.getCooldowns().addCooldown(this, 20);
+                Vec3 targetPos = getTargetedBlockPos(level, player);
+                double minHeight = Math.min(targetPos.y(), player.getY());
+                double maxHeight = Math.max(targetPos.y(), player.getY()) + 1.0;
+                float lookAngle = (float) Mth.atan2(targetPos.z() - player.getZ(), targetPos.x() - player.getX());
 
-            if (player.distanceToSqr(targetPos) < 9.0) {
-                for(int i = 0; i < 4; i++) {
-                    float g = f + (float)i * 3.1415927F * 0.5f;
-                    this.createSpellEntity(player.getX() + (double)Mth.cos(g) * 1.5, player.getZ() + (double)Mth.sin(g) * 1.5, d, e, g, 0, player);
+                if (player.distanceToSqr(targetPos) < 9.0) {
+                    for (int i = 0; i < 4; i++) {
+                        float g = lookAngle + (float) i * 3.1415927F * 0.5f;
+                        this.createFangs(player.getX() + (double) Mth.cos(g) * 1.5, player.getZ() + (double) Mth.sin(g) * 1.5, minHeight, maxHeight, g, 0, player);
+                    }
+
+                    for (int i = 0; i < 8; i++) {
+                        float g = lookAngle + (float) i * 3.1415927F * 2.0F / 4.0F + (3.1415927F / 4);
+                        this.createFangs(player.getX() + (double) Mth.cos(g) * 2.5, player.getZ() + (double) Mth.sin(g) * 2.5, minHeight, maxHeight, g, 3, player);
+                    }
+                } else {
+                    for (int i = 0; i < 8; i++) {
+                        double dist = 2 * (i + 1);
+                        this.createFangs(player.getX() + (double) Mth.cos(lookAngle) * dist, player.getZ() + (double) Mth.sin(lookAngle) * dist, minHeight, maxHeight, lookAngle, i, player);
+                    }
+                }
+            } else if (player.experienceLevel > 0 || player.getAbilities().instabuild) {
+                player.getCooldowns().addCooldown(this, 200);
+                if (!player.getAbilities().instabuild) {
+                    player.experienceLevel -= 1;
                 }
 
-                for(int i = 0; i < 8; i++) {
-                    float g = f + (float)i * 3.1415927F * 2.0F / 4.0F + (3.1415927F/4);
-                    this.createSpellEntity(player.getX() + (double)Mth.cos(g) * 2.5, player.getZ() + (double)Mth.sin(g) * 2.5, d, e, g, 3, player);
+                for(int spawnAmount = 0; spawnAmount < 3; ++spawnAmount) {
+                    BlockPos blockpos = player.blockPosition().offset(-2 + player.getRandom().nextInt(5), 1, -2 + player.getRandom().nextInt(5));
+                    Vex vex = EntityType.VEX.create(player.level());
+                    if (vex != null) {
+                        vex.moveTo(blockpos, 0.0F, 0.0F);
+                        vex.finalizeSpawn((ServerLevelAccessor) level, player.level().getCurrentDifficultyAt(blockpos), MobSpawnType.MOB_SUMMONED, null);
+                        //vex.setOwner(player);
+                        vex.setBoundOrigin(blockpos);
+                        vex.setLimitedLife(20 * (30 + player.getRandom().nextInt(90)));
+                        if (player.getTeam() != null) {
+                            level.getScoreboard().addPlayerToTeam(vex.getScoreboardName(), player.getTeam());
+                        }
+
+                        ((ServerLevel) level).addFreshEntityWithPassengers(vex);
+                        level.gameEvent(GameEvent.ENTITY_PLACE, blockpos, GameEvent.Context.of(player));
+                    }
                 }
-            } else {
-                for(int i = 0; i < 12; i++) {
-                    double h = 1.25 * (double)(i + 3);
-                    this.createSpellEntity(player.getX() + (double)Mth.cos(f) * h, player.getZ() + (double)Mth.sin(f) * h, d, e, f, i, player);
-                }
+                createVex(player.getX(), player.getY(), player.getZ(), player);
             }
         }
 
@@ -77,32 +104,36 @@ public class EvokationStaffItem extends Item {
         return blockPos.getLocation();
     }
 
-    private void createSpellEntity(double x, double z, double f, double g, float h, int i, Player player) {
-        BlockPos blockPos = BlockPos.containing(x, g, z);
-        boolean bl = false;
-        double j = 0.0;
+    private void createFangs(double x, double z, double minHeight, double maxHeight, float yRot, int warmupDelay, Player owningPlayer) {
+        BlockPos blockPos = BlockPos.containing(x, maxHeight, z);
+        boolean canSpawn = false;
+        double colHeight = 0.0;
 
-        do {
-            BlockPos blockPos2 = blockPos.below();
-            BlockState blockState = player.level().getBlockState(blockPos2);
-            if (blockState.isFaceSturdy(player.level(), blockPos2, Direction.UP)) {
-                if (!player.level().isEmptyBlock(blockPos)) {
-                    BlockState blockState2 = player.level().getBlockState(blockPos);
-                    VoxelShape voxelShape = blockState2.getCollisionShape(player.level(), blockPos);
-                    if (!voxelShape.isEmpty()) {
-                        j = voxelShape.max(Direction.Axis.Y);
+        while (blockPos.getY() >= Mth.floor(minHeight) - 1) {
+            BlockPos bottomPos = blockPos.below();
+            BlockState bottomState = owningPlayer.level().getBlockState(bottomPos);
+            if (bottomState.isFaceSturdy(owningPlayer.level(), bottomPos, Direction.UP)) {
+                if (!owningPlayer.level().isEmptyBlock(blockPos)) {
+                    BlockState topPos = owningPlayer.level().getBlockState(blockPos);
+                    VoxelShape collision = topPos.getCollisionShape(owningPlayer.level(), blockPos);
+                    if (!collision.isEmpty()) {
+                        colHeight = collision.max(Direction.Axis.Y);
                     }
                 }
 
-                bl = true;
+                canSpawn = true;
                 break;
             }
 
-            blockPos = blockPos2;
-        } while(blockPos.getY() >= Mth.floor(f) - 1);
-
-        if (bl) {
-            player.level().addFreshEntity(new EvokerFangs(player.level(), x, (double)blockPos.getY() + j, z, h, i, player));
+            blockPos = bottomPos;
         }
+
+        if (canSpawn) {
+            owningPlayer.level().addFreshEntity(new EvokerFangs(owningPlayer.level(), x, (double)blockPos.getY() + colHeight, z, yRot, warmupDelay, owningPlayer));
+        }
+    }
+
+    private void createVex(double x, double y, double z, Player owningPlayer) {
+
     }
 }
