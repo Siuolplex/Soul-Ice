@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "WWW",
-    "W W"
-  ],
+  "category": "equipment",
   "key": {
-    "W": {
+    "M": {
       "item": "minecraft:cactus"
     }
   },
+  "pattern": [
+    "MMM",
+    "M M"
+  ],
   "result": {
-    "id": "soul_ice:cactus_helmet",
-    "count": 1
+    "count": 1,
+    "id": "soul_ice:cactus_helmet"
   }
 }

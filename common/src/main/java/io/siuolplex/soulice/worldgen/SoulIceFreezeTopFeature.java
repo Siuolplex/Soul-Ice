@@ -1,6 +1,7 @@
 package io.siuolplex.soulice.worldgen;
 
 import com.mojang.serialization.Codec;
+import io.siuolplex.soulice.registry.SoulIceBiomes;
 import io.siuolplex.soulice.registry.SoulIceBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -37,15 +38,13 @@ public class SoulIceFreezeTopFeature extends SnowAndFreezeFeature {
 
 
                 if (worldGenLevel.getBlockState(underPos).is(Blocks.LAVA) &&
-                        worldGenLevel.getBiome(surfacePos).is(ResourceKey.create(Registries.BIOME,
-                                ResourceLocation.fromNamespaceAndPath("soul_ice", "soul_husk")))) {
+                        worldGenLevel.getBiome(surfacePos).is(SoulIceBiomes.SOUL_HUSK)) {
                     worldGenLevel.setBlock(underPos, SoulIceBlocks.IGNIDIA_ICE.defaultBlockState(), 2);
                     boolean makeMoreFloor = featurePlaceContext.random().nextInt(0, 256) > 64;
                     while (true) {
                         underPos = underPos.move(Direction.DOWN);
                         makeMoreFloor = worldGenLevel.getBlockState(underPos).is(Blocks.LAVA) &&
-                                worldGenLevel.getBiome(underPos).is(ResourceKey.create(Registries.BIOME,
-                                        ResourceLocation.fromNamespaceAndPath("soul_ice", "soul_husk")));
+                                worldGenLevel.getBiome(underPos).is(SoulIceBiomes.SOUL_HUSK);
                         if (!makeMoreFloor) break;
                         worldGenLevel.setBlock(underPos, SoulIceBlocks.IGNIDIA_ICE.defaultBlockState(), 2);
                     }
@@ -53,8 +52,7 @@ public class SoulIceFreezeTopFeature extends SnowAndFreezeFeature {
                     while (makeMoreFloor) {
                         abovePos = abovePos.move(Direction.UP);
                         makeMoreFloor = featurePlaceContext.random().nextInt(0, 256) > 192 && worldGenLevel.getBlockState(abovePos).is(Blocks.AIR) &&
-                                worldGenLevel.getBiome(abovePos).is(ResourceKey.create(Registries.BIOME,
-                                        ResourceLocation.fromNamespaceAndPath("soul_ice", "soul_husk")));
+                                worldGenLevel.getBiome(abovePos).is(SoulIceBiomes.SOUL_HUSK);
                         worldGenLevel.setBlock(abovePos, SoulIceBlocks.IGNIDIA_ICE.defaultBlockState(), 2);
                     }
                 }

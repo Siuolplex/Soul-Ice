@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    "XXX"
-  ],
+  "category": "building",
   "key": {
-    "X": {
+    "#": {
       "item": "soul_ice:polished_soul_ice"
     }
   },
+  "pattern": [
+    "###",
+    "###"
+  ],
   "result": {
-    "id": "soul_ice:polished_soul_ice_wall",
-    "count": 6
+    "count": 6,
+    "id": "soul_ice:polished_soul_ice_wall"
   }
 }

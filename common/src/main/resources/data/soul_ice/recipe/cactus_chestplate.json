@@ -1,17 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "W W",
-    "WWW",
-    "WWW"
-  ],
+  "category": "equipment",
   "key": {
-    "W": {
+    "M": {
       "item": "minecraft:cactus"
     }
   },
+  "pattern": [
+    "M M",
+    "MMM",
+    "MMM"
+  ],
   "result": {
-    "id": "soul_ice:cactus_chestplate",
-    "count": 1
+    "count": 1,
+    "id": "soul_ice:cactus_chestplate"
   }
 }

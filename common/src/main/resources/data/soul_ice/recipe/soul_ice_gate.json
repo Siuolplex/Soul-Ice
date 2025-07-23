@@ -1,19 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XYX",
-    "XYX"
-  ],
+  "category": "building",
   "key": {
-    "X": {
-      "item": "soul_ice:soul_ice_wall"
-    },
-    "Y": {
+    "M": {
       "item": "soul_ice:soul_ice"
+    },
+    "S": {
+      "item": "soul_ice:soul_ice_wall"
     }
   },
+  "pattern": [
+    "SMS",
+    "SMS"
+  ],
   "result": {
-    "id": "soul_ice:soul_ice_gate",
-    "count": 4
+    "count": 4,
+    "id": "soul_ice:soul_ice_gate"
   }
 }

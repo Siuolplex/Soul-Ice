@@ -27,13 +27,11 @@ public class IgnidiaIceBlock extends HalfTransparentBlock {
     public void playerDestroy(Level level, Player player, BlockPos blockPos, BlockState blockState, @Nullable BlockEntity blockEntity, ItemStack itemStack) {
         super.playerDestroy(level, player, blockPos, blockState, blockEntity, itemStack);
 
-        if (!EnchantmentHelper.hasTag(itemStack, EnchantmentTags.PREVENTS_ICE_MELTING)) {
+        /*if (!EnchantmentHelper.hasTag(itemStack, EnchantmentTags.PREVENTS_ICE_MELTING)) {
             BlockState blockState2 = level.getBlockState(blockPos.below());
             if (blockState2.blocksMotion() || blockState2.liquid()) {
                 level.setBlockAndUpdate(blockPos, meltsInto());
             }
-        }
+        }*/
     }
-
-
 }

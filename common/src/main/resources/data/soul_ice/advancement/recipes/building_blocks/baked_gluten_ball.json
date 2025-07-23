@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gluten_ball": {
+      "conditions": {
+        "items": [
+          {
+            "items": "soul_ice:gluten_ball"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "soul_ice:baked_gluten_ball"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gluten_ball"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "soul_ice:baked_gluten_ball"
+    ]
+  }
+}

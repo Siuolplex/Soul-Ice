@@ -17,6 +17,9 @@
     ],
     "client": [
       "io.siuolplex.soulice.fabric.SoulIceFabricClient"
+    ],
+    "fabric-datagen": [
+      "io.siuolplex.soulice.fabric.SoulIceDatagen"
     ]
   },
   "mixins": [

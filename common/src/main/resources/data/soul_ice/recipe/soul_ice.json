@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "WWW",
-    "WRW",
-    "WWW"
-  ],
+  "category": "building",
   "key": {
-    "R": {
+    "I": {
       "item": "minecraft:blue_ice"
     },
-    "W": {
-      "item": "minecraft:soul_sand"
+    "S": {
+      "tag": "minecraft:soul_fire_base_blocks"
     }
   },
+  "pattern": [
+    "III",
+    "ISI",
+    "III"
+  ],
   "result": {
-    "id": "soul_ice:soul_ice",
-    "count": 1
+    "count": 1,
+    "id": "soul_ice:soul_ice"
   }
 }

@@ -1,5 +1,7 @@
 package io.siuolplex.soulice.fabric;
 
+import io.siuolplex.soulice.fabric.worldgen.BiomeSetup;
+import io.siuolplex.soulice.registry.SoulIceBiomes;
 import io.siuolplex.soulice.registry.SoulIceBlocks;
 import io.siuolplex.soulice.registry.SoulIceItems;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -8,7 +10,10 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.client.gui.screens.CreateBuffetWorldScreen;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.BlockModelGenerators;
@@ -25,6 +30,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -76,9 +83,9 @@ public class SoulIceDatagen implements DataGeneratorEntrypoint {
 
         @Override
         public void generate() {
-            HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+            HolderLookup.RegistryLookup<Enchantment> registryLookup = registries.lookupOrThrow(Registries.ENCHANTMENT);
             add(SoulIceBlocks.SOUL_ICE, createSingleItemTableWithSilkTouch(SoulIceBlocks.SOUL_ICE, Items.AIR));
-            add(SoulIceBlocks.SOUL_ICE_SLAB, createSlabWithSilkTouch(SoulIceBlocks.SOUL_ICE));
+            add(SoulIceBlocks.SOUL_ICE_SLAB, createSlabWithSilkTouch(SoulIceBlocks.SOUL_ICE_SLAB));
             add(SoulIceBlocks.SOUL_ICE_STAIRS, createSingleItemTableWithSilkTouch(SoulIceBlocks.SOUL_ICE_STAIRS, Items.AIR));
             add(SoulIceBlocks.SOUL_ICE_WALL, createSingleItemTableWithSilkTouch(SoulIceBlocks.SOUL_ICE_WALL, Items.AIR));
             add(SoulIceBlocks.SOUL_ICE_GATE, createSingleItemTableWithSilkTouch(SoulIceBlocks.SOUL_ICE_GATE, Items.AIR));
@@ -153,10 +160,10 @@ public class SoulIceDatagen implements DataGeneratorEntrypoint {
             return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                                     .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block)
                                                             .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
-                                                                            .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SlabBlock.TYPE, SlabType.DOUBLE))).when(this.hasSilkTouch())
+                                                                            .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SlabBlock.TYPE, SlabType.DOUBLE)))
                                                             )
                                             )
-                                    )
+                                    ).when(this.hasSilkTouch())
                     );
         }
     }
@@ -196,7 +203,7 @@ public class SoulIceDatagen implements DataGeneratorEntrypoint {
             gate(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.POLISHED_SOUL_ICE_GATE, SoulIceBlocks.POLISHED_SOUL_ICE, SoulIceBlocks.POLISHED_SOUL_ICE_WALL);
 
             quadCraft(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.SOUL_ICE_BRICKS, SoulIceItems.POLISHED_SOUL_ICE);
-            RecipeProvider.slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.SOUL_ICE_SLAB, SoulIceItems.SOUL_ICE_BRICKS);
+            RecipeProvider.slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.SOUL_ICE_BRICK_SLAB, SoulIceItems.SOUL_ICE_BRICKS);
             RecipeProvider.stairBuilder(SoulIceItems.SOUL_ICE_BRICK_STAIRS, Ingredient.of(SoulIceItems.SOUL_ICE_BRICKS)).unlockedBy("player_get_the_item", has(SoulIceItems.SOUL_ICE_BRICKS)).save(recipeOutput);
             RecipeProvider.wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.SOUL_ICE_BRICK_WALL, SoulIceItems.SOUL_ICE_BRICKS);
             gate(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.SOUL_ICE_BRICK_GATE, SoulIceBlocks.SOUL_ICE_BRICKS, SoulIceBlocks.SOUL_ICE_BRICK_WALL);
@@ -212,7 +219,7 @@ public class SoulIceDatagen implements DataGeneratorEntrypoint {
             RecipeProvider.wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.POLISHED_LIGHTSTONE_WALL, SoulIceItems.POLISHED_LIGHTSTONE);
 
             quadCraft(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.LIGHTSTONE_BRICKS, SoulIceItems.POLISHED_LIGHTSTONE);
-            RecipeProvider.slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.LIGHTSTONE_SLAB, SoulIceItems.LIGHTSTONE_BRICKS);
+            RecipeProvider.slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.LIGHTSTONE_BRICK_SLAB, SoulIceItems.LIGHTSTONE_BRICKS);
             RecipeProvider.stairBuilder(SoulIceItems.LIGHTSTONE_BRICK_STAIRS, Ingredient.of(SoulIceItems.LIGHTSTONE_BRICKS)).unlockedBy("player_get_the_item", has(SoulIceItems.LIGHTSTONE_BRICKS)).save(recipeOutput);
             RecipeProvider.wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, SoulIceItems.LIGHTSTONE_BRICK_WALL, SoulIceItems.LIGHTSTONE_BRICKS);
 
@@ -285,5 +292,9 @@ public class SoulIceDatagen implements DataGeneratorEntrypoint {
         }
 
 
+    }
+
+    public void buildRegistry(RegistrySetBuilder registryBuilder) {
+        registryBuilder.add(Registries.BIOME, BiomeSetup::biomeBootstrap);
     }
 }

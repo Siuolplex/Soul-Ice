@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    "XXX"
-  ],
+  "category": "building",
   "key": {
-    "X": {
+    "#": {
       "item": "soul_ice:hardened_lightstone"
     }
   },
+  "pattern": [
+    "###",
+    "###"
+  ],
   "result": {
-    "id": "soul_ice:hardened_lightstone_wall",
-    "count": 6
+    "count": 6,
+    "id": "soul_ice:hardened_lightstone_wall"
   }
 }

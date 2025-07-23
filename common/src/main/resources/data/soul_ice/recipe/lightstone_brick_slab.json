@@ -1,15 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX"
-  ],
+  "category": "building",
   "key": {
-    "X": {
+    "#": {
       "item": "soul_ice:lightstone_bricks"
     }
   },
+  "pattern": [
+    "###"
+  ],
   "result": {
-    "id": "soul_ice:lightstone_brick_slab",
-    "count": 6
+    "count": 6,
+    "id": "soul_ice:lightstone_brick_slab"
   }
 }

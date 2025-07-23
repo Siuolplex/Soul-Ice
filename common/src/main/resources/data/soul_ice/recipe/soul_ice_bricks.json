@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "RR",
-    "RR"
-  ],
+  "category": "building",
   "key": {
-    "R": {
+    "O": {
       "item": "soul_ice:polished_soul_ice"
     }
   },
+  "pattern": [
+    "OO",
+    "OO"
+  ],
   "result": {
-    "id": "soul_ice:soul_ice_bricks",
-    "count": 4
+    "count": 4,
+    "id": "soul_ice:soul_ice_bricks"
   }
 }

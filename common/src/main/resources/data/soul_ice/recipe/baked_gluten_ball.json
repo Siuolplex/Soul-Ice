@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
   "ingredient": {
     "item": "soul_ice:gluten_ball"
   },
-  "result":  {
-    "id": "soul_ice:baked_gluten_ball",
-    "count": 1
-  },
-  "experience": 2.0,
-  "cookingtime": 200
+  "result": {
+    "id": "soul_ice:baked_gluten_ball"
+  }
 }

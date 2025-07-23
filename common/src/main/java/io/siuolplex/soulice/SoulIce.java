@@ -23,7 +23,6 @@ public class SoulIce {
      */
     public static void initWithRegistry(Loader loader) {
         LOADER = loader;
-        //IS_TEST_BUILD = loader.isDevMode();
 
         SoulIceArmorMaterials.init();
         SoulIceBlocks.init();

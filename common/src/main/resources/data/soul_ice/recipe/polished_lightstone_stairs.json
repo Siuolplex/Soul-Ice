@@ -1,17 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X  ",
-    "XX ",
-    "XXX"
-  ],
+  "category": "building",
   "key": {
-    "X": {
+    "#": {
       "item": "soul_ice:polished_lightstone"
     }
   },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
   "result": {
-    "id": "soul_ice:polished_lightstone_stairs",
-    "count": 4
+    "count": 4,
+    "id": "soul_ice:polished_lightstone_stairs"
   }
 }

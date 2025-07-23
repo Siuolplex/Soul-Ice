@@ -3,6 +3,7 @@
   "minVersion": "0.8",
   "package": "io.siuolplex.soulice.mixin",
   "compatibilityLevel": "JAVA_17",
+  "refmap": "soul_ice.refmap.json",
   "mixins": [
     "BoatEntityMixin",
     "DamageSourceMixin",
