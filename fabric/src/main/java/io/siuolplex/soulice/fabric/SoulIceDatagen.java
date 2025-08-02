@@ -1,7 +1,6 @@
 package io.siuolplex.soulice.fabric;
 
 import io.siuolplex.soulice.fabric.worldgen.BiomeSetup;
-import io.siuolplex.soulice.registry.SoulIceBiomes;
 import io.siuolplex.soulice.registry.SoulIceBlocks;
 import io.siuolplex.soulice.registry.SoulIceItems;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -10,34 +9,24 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.client.gui.screens.CreateBuffetWorldScreen;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
@@ -233,6 +222,17 @@ public class SoulIceDatagen implements DataGeneratorEntrypoint {
 
             ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, SoulIceItems.GLUTEN_BALL, 8).requires(Items.WHEAT, 4).unlockedBy("player_get_the_item", has(Items.WHEAT));
             RecipeProvider.smeltingResultFromBase(recipeOutput, SoulIceItems.BAKED_GLUTEN_BALL, SoulIceItems.GLUTEN_BALL);
+
+            ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, SoulIceItems.NINE_VOLT_BATTERY)
+                    .define('I', Items.IRON_INGOT)
+                    .define('G', Items.GOLD_NUGGET)
+                    .define('R', Items.REDSTONE)
+                    .define('C', Items.COPPER_INGOT)
+                    .pattern("GCG")
+                    .pattern("IRI")
+                    .pattern("ICI")
+                    .unlockedBy("player_get_the_item", has(Items.IRON_INGOT)) //Item
+                    .save(recipeOutput);
         }
 
         public static void quadCraft(RecipeOutput recipeOutput, RecipeCategory category, ItemLike result, ItemLike original) {

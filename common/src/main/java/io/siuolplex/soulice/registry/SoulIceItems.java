@@ -4,6 +4,8 @@ import io.siuolplex.soulice.items.*;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 
@@ -73,6 +75,8 @@ public class SoulIceItems {
     public static final Item BAKED_GLUTEN_BALL = register("baked_gluten_ball", new BakedGlutenBallItem(new Item.Properties().stacksTo(16)));
 
     public static final Item EVOKATION_STAFF = register("evokation_staff", new EvokationStaffItem(new Item.Properties().stacksTo(1)));
+
+    public static final Item NINE_VOLT_BATTERY = register("nine_volt_battery", new NineVoltBatteryItem(new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().effect(new MobEffectInstance(MobEffects.WITHER, 1000, 2), 1).build())));
 
 
 

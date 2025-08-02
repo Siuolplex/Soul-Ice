@@ -27,11 +27,11 @@ public class BakedGlutenBallEntity extends ThrowableItemProjectile implements Gl
     }
 
     public BakedGlutenBallEntity(double d, double e, double f, Level level) {
-        super(SoulIceEntityTypes.BAKED_GLUTEN_BALL, d, e, f, level);
+        super(SoulIceEntityTypes.NINE_VOLT_BATTERY, d, e, f, level);
     }
 
     public BakedGlutenBallEntity(LivingEntity livingEntity, Level level) {
-        super(SoulIceEntityTypes.BAKED_GLUTEN_BALL, livingEntity, level);
+        super(SoulIceEntityTypes.NINE_VOLT_BATTERY, livingEntity, level);
     }
 
     @Override
