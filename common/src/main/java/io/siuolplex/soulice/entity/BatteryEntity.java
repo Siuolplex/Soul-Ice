@@ -47,7 +47,7 @@ public class BatteryEntity extends ThrowableItemProjectile {
     @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        if (entity instanceof LivingEntity livingEntity) {
+        if (entity instanceof LivingEntity livingEntity && getOwner() instanceof LivingEntity ownedEntity && ownedEntity.canAttack(livingEntity)) {
             livingEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200));
             livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 100));
             livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200));

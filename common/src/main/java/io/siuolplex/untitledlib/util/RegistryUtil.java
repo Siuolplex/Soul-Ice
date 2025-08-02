@@ -8,7 +8,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 
 public class RegistryUtil {
     public static Holder<Enchantment> grabEnchantFromRegistry(RegistryAccess access, ResourceKey<Enchantment> resourceKey) {
-        return access.registry(Registries.ENCHANTMENT).get().getHolderOrThrow(resourceKey);
+        return access.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(resourceKey);
     }
 
 }
